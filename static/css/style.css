@@ -151,34 +151,14 @@ img.tz { object-fit: contain; }
 .tz-txt p.tz-gap { height: calc(var(--u) * 6); }
 .tz svg { width: 100%; height: 100%; display: block; }
 .tz-scene { z-index: 0; mix-blend-mode: multiply; pointer-events: none; }
-.tz-scene video, .tz-scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .5s ease; }
-.tz-scene img { opacity: 0; }
-.teaser.scene-done .tz-scene img { opacity: 1; }
-.teaser.scene-done .tz-scene video { opacity: 0; }
+.tz-scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .tz-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 3; }
 .tz-box, .tz-arrow { fill: none; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
 .tz-arrow { stroke-width: 1.5; }
 .tz-54 { z-index: 0; }
-.tz-replay { position: absolute; right: 1.2%; bottom: 2%; z-index: 6; font: 600 clamp(9px, 1.15cqw, 13px) var(--font); color: #555; background: rgba(255,255,255,.85); border: 1px solid #ddd; border-radius: 999px; padding: .35em .9em; cursor: pointer; opacity: 0; transition: opacity .3s; }
-.teaser.done .tz-replay { opacity: 1; }
-.teaser.done .tz-replay:hover { color: #111; border-color: #bbb; }
-/* animation states */
-.teaser.anim [data-step] { opacity: 0; transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.2,1), filter .3s ease; }
-.teaser.anim .tz[data-step] { transform: translateY(calc(var(--u) * 5)); }
-.teaser.anim [data-step].on { opacity: 1; transform: none; }
-.teaser.anim .tz-78 .tz-txt { clip-path: inset(0 100% 0 0); }
-.teaser.anim .tz-78.on .tz-txt { animation: tz-type 1.5s steps(48, end) .15s forwards; }
-@keyframes tz-type { to { clip-path: inset(0 0 0 0); } }
-.teaser.anim .tz-pop[data-step] { transform: scale(.4); }
-.teaser.anim .tz-pop[data-step].on { transform: scale(1); transition: opacity .25s, transform .45s cubic-bezier(.3,1.6,.5,1); }
-.teaser.anim path.tz-box[data-step], .teaser.anim path.tz-arrow[data-step] { opacity: 1; stroke-dasharray: var(--len); stroke-dashoffset: var(--len); transition: stroke-dashoffset .7s ease, opacity .3s; }
-.teaser.anim path.tz-box[data-step]:not(.on), .teaser.anim path.tz-arrow[data-step]:not(.on) { opacity: 0; }
-.teaser.anim path[data-step].on { stroke-dashoffset: 0; }
-/* hover focus */
-.teaser.done [data-q] { transition: opacity .25s ease, filter .25s ease; }
-.teaser.focus [data-q]:not(.hit) { opacity: .18 !important; filter: saturate(.3); }
-.teaser.focus .hit.tz-arrow, .teaser.focus .hit.tz-box { stroke-width: 2.6; }
-.teaser.done [data-q] { cursor: default; }
+/* looping clips in place of stacked frames */
+.tz-clip { overflow: hidden; border-radius: calc(var(--u) * 2.5); box-shadow: 0 calc(var(--u) * .8) calc(var(--u) * 2.4) rgba(0,0,0,.18); background: #ddd; }
+.tz-clip img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ---------- explorer ---------- */
 .explorer { margin-top: 28px; display: grid; grid-template-columns: 252px 1fr; gap: 20px; align-items: start; }
@@ -310,7 +290,4 @@ img.tz { object-fit: contain; }
   .teaser { border-radius: 10px; }
   .fig { padding: 10px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .teaser.anim [data-step] { transition: none !important; animation: none !important; }
-}
-@media print { .topbar, .tz-replay { display: none; } }
+@media print { .topbar { display: none; } }

@@ -9,3 +9,7 @@ tools/unused_examples/
 tools/rget.py
 tools/render/*.png
 tools/teaser.pptx
+tools/render/sky/
+tools/render/frames_*/
+tools/render/*.npy
+tools/render/clips_*/

@@ -1,11 +1,13 @@
-"""Build the animated teaser (HTML fragment) from the teaser PowerPoint.
+"""Build the teaser (HTML fragment) from the teaser PowerPoint.
 
 Every PowerPoint shape becomes an absolutely positioned element in a 720 x 405 pt coordinate box that scales with the
 page (container query units). Fixes relative to the paper figure:
   * The Top-down card answers the obstacle-direction question (Q3) and the Depth card answers the farthest-object
     question (Q2). Their labels, colours, scene boxes and arrows are corrected accordingly.
-  * The static dollhouse image is replaced by a rendered camera move (video) that lands on a still of the same view;
-    scene boxes are projected from Matterport3D object boxes (tools/render/boxes_canonical.json).
+  * The dollhouse image is re-rendered from the textured mesh; scene boxes are projected from Matterport3D object
+    boxes (tools/render/boxes_canonical.json).
+  * The stacked RGB views (left panel), depth frames and RGB frames are replaced by looping clips along the FO-0003
+    route that end on the look-back view with a yellow box (animated WebP: tools/render/make_clips.py + make_slides.py).
 Output: partials/teaser.html (inserted into index.html by tools/build_site.py).
 """
 import html, json, os, re
@@ -34,7 +36,13 @@ put(8.3, [68, 80, 106, 115, 105, 136], 'q3')
 put(8.6, [69, 101, 110, 111, 112, 114, 104, 137], 'q2')
 put(8.9, [70, 113, 107, 108, 116, 109, 138], 'q4')
 put(9.4, [103, 117])
-SKIP = {67, 90, 92, 94, 96, 91, 93, 95, 97}           # replaced by the video / SVG overlay
+SKIP = {67, 90, 92, 94, 96, 91, 93, 95, 97}           # replaced by the rendered scene / SVG overlay
+# looping clips in place of stacked frames: (clip, pt rect x, y, w, h, shapes it replaces, step, group, label)
+CLIPS = [('clip_rgb', 28.5, 221, 132, 91, {65, 84, 119, 86, 87, 88, 89, 120}, 5, '', 'Generated future RGB views along the route'),
+         ('clip_depth', 229, 295, 104, 65, {110, 111, 112, 114}, 8.6, 'q2', 'Depth along the route; the grey sofa is boxed at the end'),
+         ('clip_rgb', 572, 293, 104, 65, {107, 108, 116}, 8.9, 'q4', 'RGB along the route; the pillows are boxed at the end')]
+for c in CLIPS:
+    SKIP |= c[5]
 
 prs = Presentation(PPTX)
 shapes = {int(s.name.split(';')[1]): s for s in prs.slides[0].shapes}
@@ -56,8 +64,12 @@ def pct(v, total):
     return f'{100 * v / total:.4f}%'
 
 
+MOVE = {131: (85.75, 314.9)}                          # down arrow: centred under the left-panel clip
+
+
 def style_box(s):
     x, y, w, h = s.left / EMU, s.top / EMU, s.width / EMU, s.height / EMU
+    x, y = MOVE.get(int(s.name.split(';')[1]), (x, y))
     st = f'left:{pct(x, 720)};top:{pct(y, 405)};width:{pct(w, 720)};height:{pct(h, 405)};'
     if s.rotation:
         st += f'transform:rotate({s.rotation:.2f}deg);'
@@ -210,23 +222,25 @@ for name, (q, box_col, arrow_col, card, side) in BOX.items():
 
 parts = []
 for sid in sorted(shapes, key=lambda i: list(shapes).index(i)):
+    for clip, x, y, w, h, ids, step, grp, label in CLIPS:
+        if sid == max(ids, key=list(shapes).index):      # emit where the replaced frames sat in the stacking order
+            q = f' data-q="{grp}"' if grp else ''
+            parts.append(f'<div class="tz tz-clip" data-step="{step}"{q} style="left:{pct(x, 720)};top:{pct(y, 405)};'
+                         f'width:{pct(w, 720)};height:{pct(h, 405)}">'
+                         f'<img src="static/teaser/{clip}.webp" alt="{label}" decoding="async"></div>')
     if sid in SKIP:
         continue
     parts.append(build_shape(sid, shapes[sid]))
     if sid == 54:   # right panel frame: the scene goes right above it
         scene = (f'<div class="tz tz-scene" data-step="7.2" style="left:{pct(sx0, 720)};top:{pct(sy0, 405)};'
                  f'width:{pct(sw, 720)};height:{pct(sh, 405)}">'
-                 '<video class="tz-scene-video" muted playsinline preload="auto" poster="static/teaser/scene_poster.webp">'
-                 '<source src="static/video/scene_sweep.webm" type="video/webm">'
-                 '<source src="static/video/scene_sweep.mp4" type="video/mp4"></video>'
                  '<img class="tz-scene-still" src="static/teaser/scene_canonical.webp" alt="Imagined 3D state of the scene"></div>')
         parts.append(scene)
 
 frag = ('<div class="teaser" id="teaser" role="img" aria-label="Teaser: the same imagined 3D state, shown through '
         'different representations, answers different spatial questions; generating future RGB views alone does not.">\n'
         + '\n'.join(parts)
-        + '\n<svg class="tz-overlay" viewBox="0 0 720 405" aria-hidden="true">' + ''.join(svg) + '</svg>\n'
-        '<button class="tz-replay" type="button" aria-label="Replay the teaser animation">Replay</button>\n</div>')
+        + '\n<svg class="tz-overlay" viewBox="0 0 720 405" aria-hidden="true">' + ''.join(svg) + '</svg>\n</div>')
 os.makedirs(os.path.join(ROOT, 'partials'), exist_ok=True)
 open(os.path.join(ROOT, 'partials', 'teaser.html'), 'w', encoding='utf-8').write(frag)
 print('teaser fragment:', len(parts), 'elements,', len(svg) // 3, 'scene boxes; scene box at',

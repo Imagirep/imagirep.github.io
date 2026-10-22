@@ -14,7 +14,7 @@ from PIL import Image
 
 HERE = Path(__file__).resolve().parent
 SCAN = '5q7pvUzZiYa'
-HOUSE = Path(os.environ['MP3D_SCANS']) / SCAN   # MP3D v1/scans / 'house_segmentations' / f'{SCAN}.house'
+HOUSE = Path(os.environ['MP3D_SCANS']) / SCAN / 'house_segmentations' / f'{SCAN}.house'   # MP3D_SCANS = MP3D v1/scans
 ap = argparse.ArgumentParser()
 ap.add_argument('--regions', default='0,1,2')
 ap.add_argument('--azim', type=float, default=150); ap.add_argument('--elev', type=float, default=58)
