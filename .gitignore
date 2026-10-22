@@ -1,0 +1,11 @@
+tools/render/mesh/
+tools/render/frames*/
+tools/render/*.zip
+*.pyc
+__pycache__/
+node_modules/
+tools/data/
+tools/unused_examples/
+tools/rget.py
+tools/render/*.png
+tools/teaser.pptx

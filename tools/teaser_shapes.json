@@ -1,0 +1,1588 @@
+[
+ {
+  "name": "Google Shape;54;p13",
+  "type": 1,
+  "x": 187.23228346456693,
+  "y": 123.52362204724409,
+  "w": 520.1338582677165,
+  "h": 279.4724409448819,
+  "rot": 0.0,
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;55;p13",
+  "type": 1,
+  "x": 12.465511811023623,
+  "y": 83.93842519685039,
+  "w": 142.3464566929134,
+  "h": 35.29133858267716,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "",
+    "font": null,
+    "size": null,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "Which object(s) would be closest to me?",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "9C5B52"
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "",
+    "font": null,
+    "size": null,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "F3E3DE",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;56;p13",
+  "type": 1,
+  "x": 484.290157480315,
+  "y": 83.80724409448818,
+  "w": 181.11023622047244,
+  "h": 35.29133858267716,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "",
+    "font": null,
+    "size": null,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "Would the black and white pillows still be directly visible?",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "766A82"
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "",
+    "font": null,
+    "size": null,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E9E4EE",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;57;p13",
+  "type": 1,
+  "x": 160.8663779527559,
+  "y": 84.29275590551181,
+  "w": 142.55905511811022,
+  "h": 35.29133858267716,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "",
+    "font": null,
+    "size": null,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "Which object(s) would be farthest from me?",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "5E7860"
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "",
+    "font": null,
+    "size": null,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E4ECE3",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;58;p13",
+  "type": 1,
+  "x": 309.47984251968506,
+  "y": 84.29236220472441,
+  "w": 168.75590551181102,
+  "h": 35.29133858267716,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Which direction would have the closest obstacle?",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "5B7180"
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E2EAF0",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;59;p13",
+  "type": 1,
+  "x": 6.596456692913386,
+  "y": 123.54724409448819,
+  "w": 174.63779527559055,
+  "h": 279.4724409448819,
+  "rot": 0.0,
+  "fill": "F3F3F3",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;60;p13",
+  "type": 13,
+  "x": 59.84047244094488,
+  "y": 3.862283464566929,
+  "w": 93.22047244094489,
+  "h": 63.075826771653546,
+  "rot": 0.0,
+  "img": "static/teaser/60.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;61;p13",
+  "type": 1,
+  "x": 9.810866141732284,
+  "y": 153.03062992125984,
+  "w": 34.13385826771653,
+  "h": 22.228346456692915,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q1",
+    "font": "Comic Relief",
+    "size": 12.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "F3E3DE",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;62;p13",
+  "type": 1,
+  "x": 49.61755905511811,
+  "y": 153.47748031496062,
+  "w": 38.07874015748032,
+  "h": 22.228346456692915,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q2",
+    "font": "Comic Relief",
+    "size": 12.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E4ECE3",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;63;p13",
+  "type": 1,
+  "x": 93.36905511811024,
+  "y": 153.47748031496062,
+  "w": 40.25196850393701,
+  "h": 22.228346456692915,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q3",
+    "font": "Comic Relief",
+    "size": 12.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E2EAF0",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;64;p13",
+  "type": 1,
+  "x": 139.29385826771653,
+  "y": 153.03062992125984,
+  "w": 40.25196850393701,
+  "h": 22.228346456692915,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q4",
+    "font": "Comic Relief",
+    "size": 12.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E9E4EE",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;65;p13",
+  "type": 13,
+  "x": 11.929055118110236,
+  "y": 235.29496062992126,
+  "w": 77.88582677165354,
+  "h": 58.41535433070866,
+  "rot": 0.0,
+  "img": "static/teaser/65.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;66;p13",
+  "type": 1,
+  "x": 194.93700787401573,
+  "y": 156.02464566929135,
+  "w": 161.9763779527559,
+  "h": 113.85826771653544,
+  "rot": 0.0,
+  "fill": "F3E3DE",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;67;p13",
+  "type": 13,
+  "x": 355.06889763779526,
+  "y": 184.45291338582678,
+  "w": 208.66543307086613,
+  "h": 164.67133858267715,
+  "rot": 0.0,
+  "img": "static/teaser/67.png",
+  "crop": [
+   0.0,
+   0.07167,
+   0.0,
+   0.0
+  ],
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;68;p13",
+  "type": 1,
+  "x": 534.8444881889764,
+  "y": 153.47834645669292,
+  "w": 157.88976377952756,
+  "h": 111.02362204724409,
+  "rot": 0.0,
+  "fill": "E4ECE3",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;69;p13",
+  "type": 1,
+  "x": 197.5867716535433,
+  "y": 276.90299212598427,
+  "w": 177.70866141732284,
+  "h": 120.80314960629921,
+  "rot": 0.0,
+  "fill": "E2EAF0",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;70;p13",
+  "type": 1,
+  "x": 547.5728346456693,
+  "y": 271.7283464566929,
+  "w": 154.06299212598427,
+  "h": 125.97637795275591,
+  "rot": 0.0,
+  "fill": "E9E4EE",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;71;p13",
+  "type": 13,
+  "x": 213.37637795275592,
+  "y": 173.5163779527559,
+  "w": 116.64566929133858,
+  "h": 58.32283464566929,
+  "rot": 0.0,
+  "img": "static/teaser/71.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;72;p13",
+  "type": 17,
+  "x": 1.7880314960629922,
+  "y": 11.491338582677166,
+  "w": 65.62204724409449,
+  "h": 38.645669291338585,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Current ",
+    "font": "Roboto",
+    "size": 12.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "View",
+    "font": "Roboto",
+    "size": 12.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;73;p13",
+  "type": 17,
+  "x": 11.484251968503937,
+  "y": 63.26992125984252,
+  "w": 138.18897637795277,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q1. Closest Object",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": "9C5B52"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;74;p13",
+  "type": 17,
+  "x": 154.81039370078742,
+  "y": 63.26992125984252,
+  "w": 138.18897637795277,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q2. Farthest Object",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": "5E7860"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;75;p13",
+  "type": 17,
+  "x": 326.8935433070866,
+  "y": 63.26992125984252,
+  "w": 138.18897637795277,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q3. Obstacle Object",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": "5B7180"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;76;p13",
+  "type": 17,
+  "x": 502.6892125984252,
+  "y": 63.26992125984252,
+  "w": 138.18897637795277,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q4. Visibility",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": "766A82"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;77;p13",
+  "type": 17,
+  "x": -1.8720472440944882,
+  "y": 121.08086614173229,
+  "w": 191.5748031496063,
+  "h": 38.645669291338585,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Existing Spatial Imagination",
+    "font": "Roboto",
+    "size": 12.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;78;p13",
+  "type": 1,
+  "x": 155.45275590551182,
+  "y": 23.40748031496063,
+  "w": 556.4645669291339,
+  "h": 26.125984251968504,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Imagine walking past the fireplace and walk next to the chair, then turn to face my starting point.",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;79;p13",
+  "type": 17,
+  "x": 194.45669291338584,
+  "y": 231.8411811023622,
+  "w": 157.88976377952756,
+  "h": 34.01574803149607,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q1.",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "9C5B52"
+   },
+   {
+    "t": "The ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "9C5B52"
+   },
+   {
+    "t": "closest object",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "9C5B52"
+   },
+   {
+    "t": " is ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "9C5B52"
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "black pillar",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "9C5B52"
+   },
+   {
+    "t": " ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "9C5B52"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;80;p13",
+  "type": 17,
+  "x": 553.3114960629921,
+  "y": 151.38708661417323,
+  "w": 126.8267716535433,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Top-down Geometry",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": "5E7860"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;81;p13",
+  "type": 13,
+  "x": 426.4448818897638,
+  "y": 153.27929133858268,
+  "w": 68.05511811023622,
+  "h": 36.8,
+  "rot": 0.0,
+  "img": "static/teaser/81.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;82;p13",
+  "type": 1,
+  "x": 440.50984251968504,
+  "y": 193.76574803149606,
+  "w": 17.503937007874015,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "fill": "CCCCCC",
+  "geom": "DOWN_ARROW (36)"
+ },
+ {
+  "name": "Google Shape;83;p13",
+  "type": 17,
+  "x": 447.7513385826772,
+  "y": 185.69251968503937,
+  "w": 77.76377952755905,
+  "h": 38.645669291338585,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Imagined ",
+    "font": "Comic Relief",
+    "size": 10.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "3D State",
+    "font": "Comic Relief",
+    "size": 10.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;84;p13",
+  "type": 13,
+  "x": 52.36889763779528,
+  "y": 254.1755905511811,
+  "w": 77.76,
+  "h": 58.32,
+  "rot": 0.0,
+  "img": "static/teaser/84.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;85;p13",
+  "type": 17,
+  "x": 18.40748031496063,
+  "y": 193.30196850393702,
+  "w": 151.01574803149606,
+  "h": 26.125984251968504,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Generate future RGB Views",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "D9D9D9"
+ },
+ {
+  "name": "Google Shape;86;p13",
+  "type": 17,
+  "x": 15.606299212598426,
+  "y": 213.7728346456693,
+  "w": 88.7007874015748,
+  "h": 26.125984251968504,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "t=1 (forward)",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;87;p13",
+  "type": 17,
+  "x": 89.38409448818898,
+  "y": 233.46188976377954,
+  "w": 94.74803149606299,
+  "h": 26.125984251968504,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "t=2 (forward)",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;88;p13",
+  "type": 17,
+  "x": 128.23031496062993,
+  "y": 261.0866141732283,
+  "w": 40.25196850393701,
+  "h": 26.125984251968504,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "t=n",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;89;p13",
+  "type": 17,
+  "x": 123.5748031496063,
+  "y": 239.30448818897636,
+  "w": 40.25196850393701,
+  "h": 26.125984251968504,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "\u2026",
+    "font": "Comic Relief",
+    "size": 17.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;90;p13",
+  "type": 9,
+  "x": 369.5514960629921,
+  "y": 206.74606299212599,
+  "w": 60.40157480314961,
+  "h": 81.63779527559055,
+  "rot": 90.0,
+  "line": "EDE0DE",
+  "lw": 1.5
+ },
+ {
+  "name": "Google Shape;92;p13",
+  "type": 9,
+  "x": 466.7824409448819,
+  "y": 208.9815748031496,
+  "w": 68.05511811023622,
+  "h": 40.41732283464567,
+  "rot": 180.0,
+  "line": "5E7860",
+  "lw": 1.5
+ },
+ {
+  "name": "Google Shape;94;p13",
+  "type": 9,
+  "x": 375.2954330708661,
+  "y": 320.4436220472441,
+  "w": 108.4251968503937,
+  "h": 16.866141732283463,
+  "rot": 0.0
+ },
+ {
+  "name": "Google Shape;96;p13",
+  "type": 9,
+  "x": 487.3287401574803,
+  "y": 291.8922834645669,
+  "w": 60.23622047244095,
+  "h": 42.826771653543304,
+  "rot": 0.0,
+  "line": "766A82",
+  "lw": 1.5
+ },
+ {
+  "name": "Google Shape;98;p13",
+  "type": 17,
+  "x": 204.30708661417322,
+  "y": 150.8707874015748,
+  "w": 138.18897637795277,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Pano Image",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": "9C5B52"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;99;p13",
+  "type": 17,
+  "x": 354.74015748031496,
+  "y": -2.206692913385827,
+  "w": 157.88976377952756,
+  "h": 28.62992125984252,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Instructed Movements",
+    "font": "Roboto",
+    "size": 12.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;100;p13",
+  "type": 1,
+  "x": 271.20700787401574,
+  "y": 185.99771653543309,
+  "w": 17.503937007874015,
+  "h": 35.48031496062992,
+  "rot": 0.0,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;101;p13",
+  "type": 17,
+  "x": 217.34661417322835,
+  "y": 277.7662204724409,
+  "w": 138.18897637795277,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Depth Image",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": "5B7180"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;102;p13",
+  "type": 17,
+  "x": 370.6166929133858,
+  "y": 152.35645669291338,
+  "w": 65.62204724409449,
+  "h": 38.645669291338585,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Current ",
+    "font": "Roboto",
+    "size": 10.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "View",
+    "font": "Roboto",
+    "size": 10.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;103;p13",
+  "type": 17,
+  "x": 393.51086614173227,
+  "y": 342.1241732283465,
+  "w": 154.06299212598427,
+  "h": 48.23622047244095,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "How should the same imagined state be represented for different spatial reasoning tasks?",
+    "font": "Comic Relief",
+    "size": 10.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "",
+    "font": null,
+    "size": null,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;104;p13",
+  "type": 17,
+  "x": 207.49606299212599,
+  "y": 362.68307086614175,
+  "w": 157.88976377952756,
+  "h": 38.645669291338585,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q3.",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "5B7180"
+   },
+   {
+    "t": "The ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "5B7180"
+   },
+   {
+    "t": "farthest object from me is gray sofa.",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "5B7180"
+   },
+   {
+    "t": " ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "9C5B52"
+   },
+   {
+    "t": " ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "9C5B52"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;105;p13",
+  "type": 17,
+  "x": 536.5937007874015,
+  "y": 228.28220472440944,
+  "w": 157.88976377952756,
+  "h": 38.645669291338585,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q2.",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "5E7860"
+   },
+   {
+    "t": "The ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "5E7860"
+   },
+   {
+    "t": "front direction has the closest obstacle",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "5E7860"
+   },
+   {
+    "t": ".",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "5B7180"
+   },
+   {
+    "t": " ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "9C5B52"
+   },
+   {
+    "t": " ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "9C5B52"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;106;p13",
+  "type": 13,
+  "x": 571.1830708661417,
+  "y": 174.7263779527559,
+  "w": 84.91377952755906,
+  "h": 55.24212598425197,
+  "rot": 0.0,
+  "img": "static/teaser/106.png",
+  "crop": [
+   0.06811,
+   0.04976,
+   0.08472,
+   0.39915
+  ],
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;107;p13",
+  "type": 13,
+  "x": 558.5909448818898,
+  "y": 295.9444094488189,
+  "w": 77.76,
+  "h": 58.32,
+  "rot": 0.0,
+  "img": "static/teaser/107.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;108;p13",
+  "type": 13,
+  "x": 615.851968503937,
+  "y": 310.21511811023623,
+  "w": 73.65354330708661,
+  "h": 55.24236220472441,
+  "rot": 0.0,
+  "img": "static/teaser/108.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;109;p13",
+  "type": 17,
+  "x": 548.7670078740158,
+  "y": 359.06976377952753,
+  "w": 157.88976377952756,
+  "h": 38.645669291338585,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q4.Black and white pillows are still visible.",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": true,
+    "color": "766A82"
+   },
+   {
+    "t": " ",
+    "font": "Comic Relief",
+    "size": 11.0,
+    "bold": null,
+    "color": "9C5B52"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;110;p13",
+  "type": 13,
+  "x": 201.68897637795277,
+  "y": 298.7359842519685,
+  "w": 64.30905511811024,
+  "h": 48.23181102362205,
+  "rot": 0.0,
+  "img": "static/teaser/110.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;111;p13",
+  "type": 13,
+  "x": 231.15551181102362,
+  "y": 306.5133070866142,
+  "w": 73.65370078740158,
+  "h": 55.238346456692916,
+  "rot": 0.0,
+  "img": "static/teaser/111.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;112;p13",
+  "type": 13,
+  "x": 291.87897637795277,
+  "y": 314.44984251968503,
+  "w": 68.31496062992126,
+  "h": 51.23622047244095,
+  "rot": 0.0,
+  "img": "static/teaser/112.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;113;p13",
+  "type": 17,
+  "x": 555.5098425196851,
+  "y": 271.1828346456693,
+  "w": 138.18897637795277,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "RGB Image",
+    "font": "Roboto",
+    "size": 11.0,
+    "bold": true,
+    "color": "766A82"
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;114;p13",
+  "type": 1,
+  "x": 306.29330708661416,
+  "y": 342.0132283464567,
+  "w": 29.409448818897637,
+  "h": 15.94488188976378,
+  "rot": 180.0,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;115;p13",
+  "type": 1,
+  "x": 606.3470866141732,
+  "y": 185.6244094488189,
+  "w": 12.0,
+  "h": 11.598425196850394,
+  "rot": 0.0,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;116;p13",
+  "type": 1,
+  "x": 636.35,
+  "y": 338.5010236220472,
+  "w": 20.173228346456693,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;117;p13",
+  "type": 13,
+  "x": 375.29527559055117,
+  "y": 360.43338582677166,
+  "w": 20.173228346456693,
+  "h": 20.173228346456693,
+  "rot": 0.0,
+  "img": "static/teaser/117.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;118;p13",
+  "type": 17,
+  "x": 16.43984251968504,
+  "y": 367.23228346456693,
+  "w": 151.01574803149606,
+  "h": 48.23622047244095,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Spatial Imagination is more than  RGB.",
+    "font": "Comic Relief",
+    "size": 10.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;119;p13",
+  "type": 13,
+  "x": 96.79094488188976,
+  "y": 282.8209448818898,
+  "w": 73.65354330708661,
+  "h": 55.24236220472441,
+  "rot": 0.0,
+  "img": "static/teaser/119.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;120;p13",
+  "type": 1,
+  "x": 118.35629921259843,
+  "y": 310.72267716535436,
+  "w": 20.173228346456693,
+  "h": 19.677165354330707,
+  "rot": 0.0,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;121;p13",
+  "type": 1,
+  "x": 83.69488188976378,
+  "y": 177.34251968503938,
+  "w": 14.409448818897637,
+  "h": 14.409448818897637,
+  "rot": 0.0,
+  "geom": "MATH_PLUS (163)"
+ },
+ {
+  "name": "Google Shape;122;p13",
+  "type": 1,
+  "x": 9.810866141732284,
+  "y": 343.4085826771653,
+  "w": 34.13385826771653,
+  "h": 22.228346456692915,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q1",
+    "font": "Comic Relief",
+    "size": 12.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "F3E3DE",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;123;p13",
+  "type": 1,
+  "x": 50.967952755905515,
+  "y": 343.4085826771653,
+  "w": 38.07874015748032,
+  "h": 22.228346456692915,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q2",
+    "font": "Comic Relief",
+    "size": 12.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E4ECE3",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;124;p13",
+  "type": 1,
+  "x": 94.71944881889763,
+  "y": 343.4085826771653,
+  "w": 40.25196850393701,
+  "h": 22.228346456692915,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q3",
+    "font": "Comic Relief",
+    "size": 12.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E2EAF0",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;125;p13",
+  "type": 1,
+  "x": 139.29385826771653,
+  "y": 343.4085826771653,
+  "w": 40.25196850393701,
+  "h": 22.228346456692915,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Q4",
+    "font": "Comic Relief",
+    "size": 12.0,
+    "bold": null,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ],
+  "fill": "E9E4EE",
+  "geom": "ROUNDED_RECTANGLE (5)"
+ },
+ {
+  "name": "Google Shape;126;p13",
+  "type": 13,
+  "x": 30.898188976377952,
+  "y": 337.2535433070866,
+  "w": 14.4,
+  "h": 14.4,
+  "rot": 0.0,
+  "img": "static/teaser/126.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;127;p13",
+  "type": 13,
+  "x": 79.08511811023622,
+  "y": 337.2535433070866,
+  "w": 14.4,
+  "h": 14.4,
+  "rot": 0.0,
+  "img": "static/teaser/127.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;128;p13",
+  "type": 13,
+  "x": 123.57535433070866,
+  "y": 337.2535433070866,
+  "w": 14.4,
+  "h": 14.4,
+  "rot": 0.0,
+  "img": "static/teaser/128.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;129;p13",
+  "type": 13,
+  "x": 164.9695275590551,
+  "y": 337.2535433070866,
+  "w": 14.4,
+  "h": 14.4,
+  "rot": 0.0,
+  "img": "static/teaser/129.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;130;p13",
+  "type": 17,
+  "x": 660.0177165354331,
+  "y": 65.92393700787402,
+  "w": 59.976377952755904,
+  "h": 45.44881889763779,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "Other Spatial questions",
+    "font": "Roboto",
+    "size": 9.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   },
+   {
+    "t": "\u2026",
+    "font": "Roboto",
+    "size": null,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ },
+ {
+  "name": "Google Shape;131;p13",
+  "type": 1,
+  "x": 53.438976377952756,
+  "y": 314.8896850393701,
+  "w": 17.503937007874015,
+  "h": 26.125984251968504,
+  "rot": 0.0,
+  "geom": "DOWN_ARROW (36)"
+ },
+ {
+  "name": "Google Shape;132;p13",
+  "type": 1,
+  "x": 231.22543307086613,
+  "y": 50.70007874015748,
+  "w": 17.503937007874015,
+  "h": 20.173228346456693,
+  "rot": 0.0,
+  "fill": "CCCCCC",
+  "geom": "DOWN_ARROW (36)"
+ },
+ {
+  "name": "Google Shape;133;p13",
+  "type": 1,
+  "x": 392.51181102362204,
+  "y": 50.70007874015748,
+  "w": 17.503937007874015,
+  "h": 20.173228346456693,
+  "rot": 0.0,
+  "fill": "CCCCCC",
+  "geom": "DOWN_ARROW (36)"
+ },
+ {
+  "name": "Google Shape;134;p13",
+  "type": 1,
+  "x": 560.3587401574803,
+  "y": 50.70007874015748,
+  "w": 17.503937007874015,
+  "h": 20.173228346456693,
+  "rot": 0.0,
+  "fill": "CCCCCC",
+  "geom": "DOWN_ARROW (36)"
+ },
+ {
+  "name": "Google Shape;135;p13",
+  "type": 13,
+  "x": 342.4951181102362,
+  "y": 156.01921259842518,
+  "w": 14.4,
+  "h": 14.4,
+  "rot": 0.0,
+  "img": "static/teaser/135.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;136;p13",
+  "type": 13,
+  "x": 682.8051968503937,
+  "y": 150.34944881889763,
+  "w": 14.4,
+  "h": 14.4,
+  "rot": 0.0,
+  "img": "static/teaser/136.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;137;p13",
+  "type": 13,
+  "x": 362.128031496063,
+  "y": 276.13543307086616,
+  "w": 14.4,
+  "h": 14.4,
+  "rot": 0.0,
+  "img": "static/teaser/137.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;138;p13",
+  "type": 13,
+  "x": 687.2362992125984,
+  "y": 269.9996062992126,
+  "w": 14.4,
+  "h": 14.4,
+  "rot": 0.0,
+  "img": "static/teaser/138.png",
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;93;p13",
+  "type": 1,
+  "x": 438.5220472440945,
+  "y": 252.08291338582677,
+  "w": 31.953779527559057,
+  "h": 15.06503937007874,
+  "rot": 320.2486666666667,
+  "line": "93C47D",
+  "lw": 1.5,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;91;p13",
+  "type": 1,
+  "x": 424.6381102362205,
+  "y": 286.1988188976378,
+  "w": 31.93708661417323,
+  "h": 15.070866141732283,
+  "rot": 269.87286666666665,
+  "line": "F4CCCC",
+  "lw": 1.5,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;95;p13",
+  "type": 1,
+  "x": 480.45,
+  "y": 303.56133858267714,
+  "w": 28.29716535433071,
+  "h": 15.67,
+  "rot": 320.24955,
+  "line": "6D9EEB",
+  "lw": 1.5,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;97;p13",
+  "type": 1,
+  "x": 471.43653543307084,
+  "y": 290.478031496063,
+  "w": 17.96551181102362,
+  "h": 14.308897637795276,
+  "rot": 320.2812333333333,
+  "line": "FF00FF",
+  "lw": 1.5,
+  "geom": "RECTANGLE (1)"
+ },
+ {
+  "name": "Google Shape;139;p13",
+  "type": 17,
+  "x": 351.51181102362204,
+  "y": 121.08086614173229,
+  "w": 191.5748031496063,
+  "h": 38.645669291338585,
+  "rot": 0.0,
+  "runs": [
+   {
+    "t": "ImagiRep",
+    "font": "Roboto",
+    "size": 15.0,
+    "bold": true,
+    "color": null
+   },
+   {
+    "t": "\n"
+   }
+  ]
+ }
+]

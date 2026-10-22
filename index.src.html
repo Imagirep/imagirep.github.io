@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImagiRep: Representing the Unseen</title>
+<meta name="description" content="Representing the Unseen: Rethinking Visual Imagination for Spatial Reasoning. ImagiRep is a controlled benchmark of 922 spatial questions with oracle RGB and six alternative representations of the same unobserved state; GEARS selects imagined evidence at test time.">
+<meta property="og:title" content="Representing the Unseen: Rethinking Visual Imagination for Spatial Reasoning">
+<meta property="og:description" content="Which representation of an imagined state helps spatial reasoning? ImagiRep benchmark and the GEARS test-time strategy.">
+<meta property="og:image" content="static/fig/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="static/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+<script>
+  try { const t = localStorage.getItem('imagirep-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>ImagiRep</a>
+    <nav class="toc" aria-label="Sections">
+      <a href="#benchmark">Benchmark</a>
+      <a href="#explorer">Examples</a>
+      <a href="#findings">Findings</a>
+      <a href="#gears">GEARS</a>
+      <a href="#citation">Citation</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="sun" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66 1.41-1.41M4.93 19.07l1.41-1.41m0-11.32L4.93 4.93m14.14 14.14-1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="venue">Preprint &middot; 2026</p>
+    <h1>Representing the Unseen:<br><span>Rethinking Visual Imagination for Spatial Reasoning</span></h1>
+    <p class="authors">
+      <span>Zengqi Zhao<sup>*</sup></span><span>Zun Wang<sup>*</sup></span><span>Shoubin Yu</span><span>Mohit Bansal</span><span>Yue Zhang</span>
+    </p>
+    <p class="affil">UNC Chapel Hill <span class="muted">&middot; <sup>*</sup>Equal contribution</span></p>
+    <div class="links">
+      <a class="btn" href="#" aria-disabled="true" data-soon><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z M14 2v6h6"/></svg>Paper<span class="soon">soon</span></a>
+      <a class="btn" href="#" aria-disabled="true" data-soon><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z M8 9h8 M8 13h8 M8 17h5"/></svg>arXiv<span class="soon">soon</span></a>
+      <a class="btn" href="#" aria-disabled="true" data-soon><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Data<span class="soon">soon</span></a>
+      <a class="btn" href="#" aria-disabled="true" data-soon><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5 M16 7l5 5-5 5 M14 4l-4 16"/></svg>Code<span class="soon">soon</span></a>
+      <a class="btn" href="#citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-4 6 M15 7h4v4c0 3-2 5-4 6"/></svg>BibTeX</a>
+    </div>
+  </div>
+
+  <div class="wrap narrow premise">
+    <p>Many spatial questions are about what a model cannot see: what it would face after an instructed movement, or how objects
+      seen in separate views relate to each other. Answering them takes <em>spatial imagination</em>, building an
+      <dfn>imagined state</dfn>: the scene as it would appear from a viewpoint the model has not observed. Visual world models
+      imagine this state by generating RGB views, largely because RGB is what they are built to generate, not because it is
+      necessarily what reasoning needs. We ask which representation of the same imagined state actually helps.</p>
+  </div>
+
+  <div class="wrap wide teaser-wrap">
+    <!--TEASER-->
+    <p class="caption"><strong>Spatial imagination is more than generating future RGB views.</strong> The same imagined state supports
+      different spatial questions best through different representations: a panorama for the closest object around you, top-down
+      geometry for the direction of the nearest obstacle, depth for the farthest object, and RGB for what remains visible. <span class="muted">Hover a question
+      or a card to follow it.</span></p>
+  </div>
+</section>
+
+<section class="tldr">
+  <div class="wrap">
+    <p class="lead">We hold the imagined state fixed, change only how it is represented, and measure what helps spatial reasoning.</p>
+    <ul class="stats" aria-label="Benchmark at a glance">
+      <li><b>922</b><span>human-written questions</span></li>
+      <li><b>7</b><span>representations of each imagined state</span></li>
+      <li><b>7</b><span>question types in 2 settings</span></li>
+      <li><b>+21.4</b><span>points if each question gets its best representation (GPT-6.1-sol, Viewpoint Imagination)</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="abstract" aria-labelledby="abs-h">
+  <div class="wrap narrow">
+    <h2 id="abs-h">Abstract</h2>
+    <p>Visual world models increasingly support spatial reasoning by generating RGB views of unobserved states. However, RGB has become
+      the default interface largely because it is well suited for visual generation, rather than necessarily being the most effective
+      representation for downstream reasoning. Different spatial questions may benefit from different representations of the same
+      imagined state: top-down geometry can facilitate global distance comparisons, while panoramic views provide broader context for
+      reasoning about open space. To isolate the role of representation in spatial imagination, we introduce <strong>ImagiRep</strong>,
+      a simulator-grounded benchmark of 922 questions spanning seven question types across two settings, Viewpoint Imagination and
+      Cross-view Integration, providing oracle RGB and six alternative representations (e.g., depth, panoramic views, and top-down
+      geometry) of the same unobserved state. This controlled comparison reveals that even accurate imagined RGB does not guarantee
+      accurate spatial reasoning, and different questions benefit from different representations. Similar trends hold for
+      representations derived from world-model-estimated states, even when estimated RGB alone degrades performance. Building on these
+      findings, we introduce <strong>GEARS</strong>, a lightweight strategy that adaptively selects imagined evidence at test time,
+      outperforming existing spatial imagination methods on both Viewpoint Imagination and Cross-view Integration. Our results suggest
+      that effective spatial imagination depends not only on generating unseen views, but also on representing spatial information
+      according to the needs of downstream reasoning.</p>
+  </div>
+</section>
+
+<section id="benchmark" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Benchmark</p>
+    <h2>ImagiRep: one imagined state, seven representations</h2>
+    <p class="intro">Built on Matterport3D scenes with known geometry and camera poses, ImagiRep keeps the scene, the question and the
+      answer options fixed and changes only how the unobserved state is shown to the model. The <dfn>endpoint</dfn> is the
+      unobserved viewpoint a question is about: where the observer stands after the instructed movement, or the missing view between
+      the given ones. <dfn>Oracle</dfn> representations are rendered from the true scene at the endpoint, so the imagination itself is
+      error-free; <dfn>estimated</dfn> ones are rendered from a scene predicted by a world model.</p>
+    <figure class="fig">
+      <img src="static/fig/benchmark.webp" alt="ImagiRep construction pipeline, the seven representations of an imagined state, and example questions for both settings" loading="lazy" width="2200" height="1238">
+    </figure>
+    <div class="cards two">
+      <article class="card">
+        <h3>Viewpoint Imagination <span class="pill">622 questions</span></h3>
+        <p>From a single starting view and an instructed movement (one to three moves, 0.5&ndash;9&nbsp;m), reason about the new
+          viewpoint: open-space and nearest-obstacle direction, visibility, nearest and farthest object, and where a named object lies.
+          200 routes across 73 scenes.</p>
+      </article>
+      <article class="card">
+        <h3>Cross-view Integration <span class="pill">300 questions</span></h3>
+        <p>From two or three partially overlapping views, combine evidence about objects that never appear together: cross-view
+          nearest and farthest object, and the left-to-right order of objects from a given view. 143 view groups across 21 scenes.</p>
+      </article>
+    </div>
+    <div class="reps" aria-label="Representations">
+      <span class="rep" data-rep="rgb">Endpoint RGB</span>
+      <span class="rep" data-rep="topdown">Top-down geometry</span>
+      <span class="rep" data-rep="text">Spatial text</span>
+      <span class="rep" data-rep="video">Video</span>
+      <span class="rep" data-rep="depth">Depth</span>
+      <span class="rep" data-rep="normals">Surface normals</span>
+      <span class="rep" data-rep="panorama">Panorama</span>
+    </div>
+  </div>
+</section>
+
+<section id="explorer">
+  <div class="wrap">
+    <p class="eyebrow">Examples</p>
+    <h2>Explore the benchmark</h2>
+    <p class="intro">Pick a question, try it yourself, and switch between representations of the same imagined state.
+      <span class="muted" id="ex-rule"></span></p>
+    <div class="explorer" id="ex">
+      <div class="ex-picker" role="tablist" aria-label="Example questions" id="ex-picker"></div>
+      <div class="ex-main">
+        <div class="ex-q">
+          <div class="ex-meta"><span class="pill" id="ex-setting"></span><span class="pill soft" id="ex-type"></span><span class="ex-uid" id="ex-uid"></span></div>
+          <p class="ex-question" id="ex-question"></p>
+          <div class="ex-options" id="ex-options" role="group" aria-label="Answer options"></div>
+          <div class="ex-actions"><button class="btn small" type="button" id="ex-reveal">Reveal answer</button><span id="ex-verdict" aria-live="polite"></span></div>
+        </div>
+        <div class="ex-observed">
+          <h4>Observed view(s)</h4>
+          <div class="ex-strip" id="ex-observed"></div>
+        </div>
+        <div class="ex-imagined">
+          <h4>Imagined state <span class="muted">(oracle, rendered from the true scene)</span></h4>
+          <div class="ex-tabs" role="tablist" aria-label="Representation" id="ex-tabs"></div>
+          <div class="ex-panel" id="ex-panel" role="tabpanel"></div>
+          <details class="ex-caption"><summary>What the model is told about this representation</summary><p id="ex-caption"></p></details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="findings" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Findings</p>
+    <h2>What helps a model reason about the unseen?</h2>
+
+    <article class="finding" id="f1">
+      <div class="finding-head"><span class="fnum">1</span>
+        <p><strong>Accurate imagined RGB helps overall, but can hurt specific questions.</strong> Oracle endpoint RGB adds roughly 8&ndash;12
+          points over the observed views, yet reasoning stays far from perfect, and on Farthest Object questions GPT-6.1-sol drops from
+          68.4% to 58.2% even with the ground-truth view.</p></div>
+      <div class="viz-grid">
+        <div class="viz" id="viz-inputs"></div>
+        <div class="viz" id="viz-pertype"></div>
+      </div>
+    </article>
+
+    <article class="finding" id="f2">
+      <div class="finding-head"><span class="fnum">2</span>
+        <p><strong>Alternative representations add complementary evidence, and no single one wins everywhere.</strong> Every
+          representation recovers some errors made with oracle RGB. The best one depends on the question: top-down geometry for
+          Farthest Object, panorama for Open-space Direction, depth for cross-view Nearest Object. Picking the right one per question
+          (oracle selection) would reach 87.5% and 91.7% with GPT-6.1-sol.</p></div>
+      <div class="viz" id="viz-heat"></div>
+    </article>
+
+    <article class="finding" id="f3">
+      <div class="finding-head"><span class="fnum">3</span>
+        <p><strong>The benefit survives imperfect imagination.</strong> With states estimated by world models (HY-World 2.0 and Stable
+          Virtual Camera), estimated RGB alone lowers Viewpoint Imagination accuracy from 57.2% to 54.7%, while every alternative
+          representation built from the same estimated scene lifts it to 61.7&ndash;65.6%.</p></div>
+      <figure class="fig compare" id="cmp">
+        <img src="static/fig/vis_obs.webp" alt="Oracle versus estimated representations for Viewpoint Imagination" loading="lazy" width="2200" height="494">
+        <figcaption>Oracle representations (rendered from the true scene) and estimated ones (rendered from a world-model scene) of the
+          same endpoint, Viewpoint Imagination.</figcaption>
+      </figure>
+      <div class="viz-grid">
+        <div class="viz" id="viz-est"></div>
+        <figure class="fig small">
+          <img src="static/fig/cross_estimation.webp" alt="Oracle versus estimated RGB and depth for Cross-view Integration" loading="lazy" width="1400" height="719">
+          <figcaption>Cross-view Integration: SEVA synthesizes the missing view; depth is estimated from it.</figcaption>
+        </figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="gears">
+  <div class="wrap">
+    <p class="eyebrow">Method</p>
+    <h2>GEARS: decide <em>when</em> to imagine and <em>what</em> to show</h2>
+    <p class="intro"><strong>G</strong>ated <strong>E</strong>vidence and <strong>A</strong>daptive <strong>R</strong>epresentation
+      <strong>S</strong>election is a lightweight test-time strategy. If the answers with and without the estimated endpoint RGB agree,
+      GEARS keeps that answer. If they disagree, the reasoner chooses which evidence to trust, from the observed views alone to an
+      estimated representation, and answers with it.</p>
+    <div class="flow" id="flow" aria-label="GEARS pipeline">
+      <svg viewBox="0 0 880 300" role="img" aria-labelledby="flow-t">
+        <title id="flow-t">GEARS: two answers are compared; if they agree the answer is returned, otherwise evidence routing selects a representation and the model answers again.</title>
+        <defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+        <g class="fn in" data-k="1"><rect x="10" y="30" width="170" height="64" rx="12"/><text x="95" y="58">Question +</text><text x="95" y="78">observed view(s)</text></g>
+        <g class="fn in" data-k="1"><rect x="10" y="170" width="170" height="64" rx="12"/><text x="95" y="198">Estimated</text><text x="95" y="218">endpoint RGB</text></g>
+        <g class="fn vlm" data-k="2"><rect x="250" y="62" width="110" height="46" rx="10"/><text x="305" y="90">VLM</text></g>
+        <g class="fn vlm" data-k="2"><rect x="250" y="156" width="110" height="46" rx="10"/><text x="305" y="184">VLM</text></g>
+        <g class="fn gate" data-k="3"><path d="M480,62 L548,132 L480,202 L412,132 Z"/><text x="480" y="127">Answers</text><text x="480" y="145">agree?</text></g>
+        <g class="fn route" data-k="4"><rect x="415" y="236" width="140" height="52" rx="10"/><text x="485" y="267">Evidence routing</text></g>
+        <g class="fn route" data-k="5"><rect x="600" y="236" width="140" height="52" rx="10"/><text x="670" y="258">Selected</text><text x="670" y="276">representation</text></g>
+        <g class="fn vlm" data-k="6"><rect x="615" y="146" width="110" height="46" rx="10"/><text x="670" y="174">VLM</text></g>
+        <g class="fn out" data-k="7"><rect x="610" y="20" width="160" height="56" rx="12"/><text x="690" y="53">Final answer</text></g>
+        <g class="fe">
+          <path data-k="2" d="M180,62 H250"/><path data-k="2" d="M180,90 C215,90 215,85 250,85" class="faint"/>
+          <path data-k="2" d="M180,202 H250"/><path data-k="2" d="M95,94 C95,140 215,170 250,172"/>
+          <path data-k="3" d="M360,85 C390,85 400,110 420,124"/><path data-k="3" d="M360,179 C390,179 400,150 420,140"/>
+          <path data-k="7" d="M480,62 V48 H610" class="yes"/>
+          <path data-k="4" d="M480,202 V236" class="no"/>
+          <path data-k="5" d="M555,262 H600"/>
+          <path data-k="6" d="M670,236 V192"/>
+          <path data-k="7" d="M690,146 V76"/>
+        </g>
+        <text class="flabel yes" x="520" y="40">Yes</text>
+        <text class="flabel no" x="492" y="224">No</text>
+      </svg>
+    </div>
+    <div class="viz-grid">
+      <div class="viz" id="viz-methods"></div>
+      <div class="viz" id="viz-ablation"></div>
+    </div>
+    <p class="note">All methods use GPT-6.1-sol as the final reasoner and are evaluated on the same questions. MindJourney uses its released
+      Search World Model; AVIC uses Stable Virtual Camera.</p>
+  </div>
+</section>
+
+<section id="more" class="band">
+  <div class="wrap">
+    <p class="eyebrow">More examples</p>
+    <h2>Oracle and estimated representations</h2>
+    <figure class="fig">
+      <img src="static/fig/vis_more2.webp" alt="More examples of oracle and estimated spatial representations" loading="lazy" width="2200" height="1042">
+      <figcaption>Oracle representations are derived from ground-truth 3D scenes; estimated representations come from HY-World 2.0.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="citation">
+  <div class="wrap narrow">
+    <p class="eyebrow">Citation</p>
+    <h2>BibTeX</h2>
+    <div class="bib"><button class="copy" type="button" aria-label="Copy BibTeX">Copy</button><pre><code id="bibtex">@article{zhao2026imagirep,
+  title   = {Representing the Unseen: Rethinking Visual Imagination for Spatial Reasoning},
+  author  = {Zhao, Zengqi and Wang, Zun and Yu, Shoubin and Bansal, Mohit and Zhang, Yue},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</code></pre></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap narrow">
+    <p>Images, videos and geometry shown on this page are rendered from <a href="https://niessner.github.io/Matterport/">Matterport3D</a>
+      (Chang et al., 2017) and are subject to the Matterport3D Terms of Use.</p>
+    <p class="muted">&copy; 2026 the authors.</p>
+  </div>
+</footer>
+
+<div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+<!--DATA-->
+<script src="static/js/teaser.js"></script>
+<script src="static/js/charts.js"></script>
+<script src="static/js/explorer.js"></script>
+<script src="static/js/main.js"></script>
+</body>
+</html>
