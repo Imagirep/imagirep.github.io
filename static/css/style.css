@@ -80,10 +80,11 @@ section.band { background: var(--band); }
 .authors sup, .affil sup { color: var(--accent-ink); font-weight: 600; }
 .affil { margin-top: .4rem; color: var(--ink-2); }
 .links { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 600; font-size: .92rem; border: 0; cursor: pointer; font-family: inherit; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--surface); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--line); text-decoration: none; font-weight: 600; font-size: .92rem; border: 0; cursor: pointer; font-family: inherit; }
 .btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.btn:hover { opacity: .88; }
-.btn[aria-disabled="true"] { background: var(--surface); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--line); cursor: default; }
+.btn:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--axis); }
+.btn[aria-disabled="true"] { cursor: default; }
+.btn[aria-disabled="true"]:hover { color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--line); }
 .btn .soon { font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
 .btn.small { padding: 7px 14px; font-size: .88rem; }
 .teaser-wrap { margin-top: 44px; }
