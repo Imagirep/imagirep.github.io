@@ -148,14 +148,13 @@ window.Charts = (function () {
   /* ---------- 2. heatmap: question type x representation ---------- */
   function heat(host) {
     let model = 'gpt', setting = 'vi';
-    const f = frame(host, 'Recovery score with each additional oracle representation', 'Correct with endpoint RGB alone or with endpoint RGB + the representation. Best per row outlined.');
+    const f = frame(host, 'Recovery score with each additional oracle representation', 'Correct with endpoint RGB alone or with endpoint RGB + the representation. Best representation per row outlined in bold.');
     seg(f.controls, [['gpt', 'GPT-6.1-sol'], ['gemini', 'Gemini 3.7 Flash']], model, v => { model = v; draw(); }, 'Model');
     seg(f.controls, [['vi', 'Viewpoint Imagination'], ['cv', 'Cross-view Integration']], setting, v => { setting = v; draw(); }, 'Setting');
     const reps = ['topdown', 'text', 'video', 'depth', 'normals', 'panorama'];
     const draw = () => {
       const d = R(), M = d.oracle[model][setting], types = d.types[setting];
-      f.legend.innerHTML = '<span>Low</span>' + [1, 2, 3, 4, 5, 6].map(i => `<span><i style="--c:var(--seq-${i})"></i></span>`).join('') + '<span>High</span><span class="muted">&nbsp;&middot; columns: </span>' +
-        reps.map(r => `<span><i style="--c:${repColor(r)}"></i>${REP_LABEL[r]}</span>`).join('');
+      f.legend.remove();
       table(f.tbl, ['Question type', 'Observed', '+ RGB', ...reps.map(r => REP_LABEL[r]), 'Oracle sel.'], M.map((row, i) => [types[i], ...row]), [3, 4, 5, 6, 7, 8]);
       f.plot.innerHTML = '';
       const W = Math.max(660, f.plot.clientWidth), narrow = W < 620;   // scrolls sideways on phones
@@ -171,21 +170,16 @@ window.Charts = (function () {
         const words = narrow && label.length > 7 ? [label.slice(0, 4) + '.'] : [label];
         s('text', { x: cx, y: top - 20, 'text-anchor': 'middle', class: 't-muted', 'font-size': narrow ? 10 : 11.5 }, svg, words[0]);
       });
-      const lo = 30, hi = 100;
-      const bucket = v => Math.max(0, Math.min(6, Math.floor((v - lo) / (hi - lo) * 7)));
       types.forEach((t, i) => {
         const y = top + i * cellH, row = M[i], best = Math.max(...row.slice(2, 8));
         s('text', { x: L - 10, y: y + cellH / 2 + 4, 'text-anchor': 'end', class: t === 'All' ? 't-strong' : '', 'font-size': narrow ? 11 : 12 }, svg, narrow ? t.replace('Direction', 'Dir.').replace('Object-relative', 'Obj.-relative') : t);
         cols.forEach(([k, label, w], j) => {
           const v = row[j], g = s('g', { class: 'heat-cell' + (j >= 2 && j <= 7 && v === best ? ' best' : '') }, svg);
-          const isRef = j < 2 || j === 8;
-          const b = bucket(v);
-          s('rect', { x: xs[j], y, width: w, height: cellH, fill: isRef ? css('--band') : css('--seq-' + b) }, g);
-          if (j >= 2 && j <= 7 && v === best) s('rect', { class: 'ring', x: xs[j] + 2, y: y + 2, width: w - 4, height: cellH - 4 }, g);
-          const fill = isRef ? css('--band') : css('--seq-' + b);
-          const hex = fill.replace('#', ''), lum = hex.length === 6 ? [0, 2, 4].map(k => parseInt(hex.substr(k, 2), 16) / 255)
-            .map(c => c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)).reduce((a, c, k) => a + c * [0.2126, 0.7152, 0.0722][k], 0) : 1;
-          s('text', { x: xs[j] + w / 2, y: y + cellH / 2 + 4, 'text-anchor': 'middle', style: `fill:${lum < 0.28 ? '#fff' : '#111'}`, 'font-weight': t === 'All' || (j >= 2 && j <= 7 && v === best) ? 700 : 400, 'font-size': narrow ? 10.5 : 12 }, g, v.toFixed(1));
+          // three cell styles only: reference column (muted), representation, best representation in the row (outlined, bold)
+          const isRef = j < 2 || j === 8, isBest = !isRef && v === best;
+          s('rect', { x: xs[j], y, width: w, height: cellH, fill: css('--band') }, g);
+          if (isBest) s('rect', { class: 'ring', x: xs[j] + 2, y: y + 2, width: w - 4, height: cellH - 4 }, g);
+          s('text', { x: xs[j] + w / 2, y: y + cellH / 2 + 4, 'text-anchor': 'middle', class: isRef ? 't-muted' : '', style: isRef ? '' : 'fill:var(--ink)', 'font-weight': isBest ? 700 : 400, 'font-size': narrow ? 10.5 : 12 }, g, v.toFixed(1));
           const dRgb = j >= 2 ? ` (${(v - row[1] >= 0 ? '+' : '')}${(v - row[1]).toFixed(1)} vs RGB)` : '';
           hover(g, `<b>${t}</b> &middot; ${label}<br><b>${v.toFixed(1)}%</b>${dRgb}`);
         });

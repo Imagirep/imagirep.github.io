@@ -7,7 +7,6 @@
   --accent: #9085e9; --accent-ink: #b3abf2;
   --rep-rgb: #9085e9; --rep-topdown: #3987e5; --rep-text: #d95926; --rep-video: #199e70; --rep-depth: #c98500;
   --rep-normals: #d55181; --rep-panorama: #008300; --rep-observed: #6f6e69;
-  --seq-0: #18202b; --seq-1: #104281; --seq-2: #184f95; --seq-3: #1c5cab; --seq-4: #2a78d6; --seq-5: #5598e7; --seq-6: #9ec5f4;
   --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.35);
   --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -34,7 +33,6 @@
     --rep-normals: #e87ba4;
     --rep-panorama: #008300;
     --rep-observed: #a3a19a;
-    --seq-0: #f0f5fc; --seq-1: #cde2fb; --seq-2: #9ec5f4; --seq-3: #6da7ec; --seq-4: #3987e5; --seq-5: #256abf; --seq-6: #184f95;
     --shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.06);
   }
 }
