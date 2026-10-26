@@ -72,18 +72,6 @@
   </div>
 </section>
 
-<section class="tldr">
-  <div class="wrap">
-    <p class="lead">We hold the imagined state fixed, change only how it is represented, and measure what helps spatial reasoning.</p>
-    <ul class="stats" aria-label="Benchmark at a glance">
-      <li><b>922</b><span>human-written questions</span></li>
-      <li><b>7</b><span>representations of each imagined state</span></li>
-      <li><b>7</b><span>question types in 2 settings</span></li>
-      <li><b>+21.4</b><span>points if each question gets its best representation (GPT-6.1-sol, Viewpoint Imagination)</span></li>
-    </ul>
-  </div>
-</section>
-
 <section class="abstract" aria-labelledby="abs-h">
   <div class="wrap narrow">
     <h2 id="abs-h">Abstract</h2>
@@ -129,15 +117,6 @@
           nearest and farthest object, and the left-to-right order of objects from a given view. 143 view groups across 21 scenes.</p>
       </article>
     </div>
-    <div class="reps" aria-label="Representations">
-      <span class="rep" data-rep="rgb">Endpoint RGB</span>
-      <span class="rep" data-rep="topdown">Top-down geometry</span>
-      <span class="rep" data-rep="text">Spatial text</span>
-      <span class="rep" data-rep="video">Video</span>
-      <span class="rep" data-rep="depth">Depth</span>
-      <span class="rep" data-rep="normals">Surface normals</span>
-      <span class="rep" data-rep="panorama">Panorama</span>
-    </div>
   </div>
 </section>
 
@@ -145,7 +124,7 @@
   <div class="wrap">
     <p class="eyebrow">Examples</p>
     <h2>Explore the benchmark</h2>
-    <p class="intro">Pick a question, try it yourself, and switch between representations of the same imagined state.
+    <p class="intro">Pick a question, reveal its answer, and switch between representations of the same imagined state.
       <span class="muted" id="ex-rule"></span></p>
     <div class="explorer" id="ex">
       <div class="ex-picker" role="tablist" aria-label="Example questions" id="ex-picker"></div>
@@ -153,7 +132,7 @@
         <div class="ex-q">
           <div class="ex-meta"><span class="pill" id="ex-setting"></span><span class="pill soft" id="ex-type"></span><span class="ex-uid" id="ex-uid"></span></div>
           <p class="ex-question" id="ex-question"></p>
-          <div class="ex-options" id="ex-options" role="group" aria-label="Answer options"></div>
+          <div class="ex-options" id="ex-options" aria-label="Answer options"></div>
           <div class="ex-actions"><button class="btn small" type="button" id="ex-reveal">Reveal answer</button><span id="ex-verdict" aria-live="polite"></span></div>
         </div>
         <div class="ex-observed">
@@ -229,15 +208,15 @@
       <svg viewBox="0 0 880 300" role="img" aria-labelledby="flow-t">
         <title id="flow-t">GEARS: two answers are compared; if they agree the answer is returned, otherwise evidence routing selects a representation and the model answers again.</title>
         <defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
-        <g class="fn in" data-k="1"><rect x="10" y="30" width="170" height="64" rx="12"/><text x="95" y="58">Question +</text><text x="95" y="78">observed view(s)</text></g>
-        <g class="fn in" data-k="1"><rect x="10" y="170" width="170" height="64" rx="12"/><text x="95" y="198">Estimated</text><text x="95" y="218">endpoint RGB</text></g>
-        <g class="fn vlm" data-k="2"><rect x="250" y="62" width="110" height="46" rx="10"/><text x="305" y="90">VLM</text></g>
-        <g class="fn vlm" data-k="2"><rect x="250" y="156" width="110" height="46" rx="10"/><text x="305" y="184">VLM</text></g>
+        <g class="fn in" data-k="1"><rect x="10" y="30" width="170" height="64"/><text x="95" y="58">Question +</text><text x="95" y="78">observed view(s)</text></g>
+        <g class="fn in" data-k="1"><rect x="10" y="170" width="170" height="64"/><text x="95" y="198">Estimated</text><text x="95" y="218">endpoint RGB</text></g>
+        <g class="fn vlm" data-k="2"><rect x="250" y="62" width="110" height="46"/><text x="305" y="90">VLM</text></g>
+        <g class="fn vlm" data-k="2"><rect x="250" y="156" width="110" height="46"/><text x="305" y="184">VLM</text></g>
         <g class="fn gate" data-k="3"><path d="M480,62 L548,132 L480,202 L412,132 Z"/><text x="480" y="127">Answers</text><text x="480" y="145">agree?</text></g>
-        <g class="fn route" data-k="4"><rect x="415" y="236" width="140" height="52" rx="10"/><text x="485" y="267">Evidence routing</text></g>
-        <g class="fn route" data-k="5"><rect x="600" y="236" width="140" height="52" rx="10"/><text x="670" y="258">Selected</text><text x="670" y="276">representation</text></g>
-        <g class="fn vlm" data-k="6"><rect x="615" y="146" width="110" height="46" rx="10"/><text x="670" y="174">VLM</text></g>
-        <g class="fn out" data-k="7"><rect x="610" y="20" width="160" height="56" rx="12"/><text x="690" y="53">Final answer</text></g>
+        <g class="fn route" data-k="4"><rect x="415" y="236" width="140" height="52"/><text x="485" y="267">Evidence routing</text></g>
+        <g class="fn route" data-k="5"><rect x="600" y="236" width="140" height="52"/><text x="670" y="258">Selected</text><text x="670" y="276">representation</text></g>
+        <g class="fn vlm" data-k="6"><rect x="615" y="146" width="110" height="46"/><text x="670" y="174">VLM</text></g>
+        <g class="fn out" data-k="7"><rect x="610" y="20" width="160" height="56"/><text x="690" y="53">Final answer</text></g>
         <g class="fe">
           <path data-k="2" d="M180,62 H250"/><path data-k="2" d="M180,90 C215,90 215,85 250,85" class="faint"/>
           <path data-k="2" d="M180,202 H250"/><path data-k="2" d="M95,94 C95,140 215,170 250,172"/>

@@ -51,7 +51,7 @@ window.Charts = (function () {
     const legend = h('div', { class: 'legend' }, host);
     const plot = h('div', { class: 'plot' }, host);
     const tbtn = h('button', { class: 'table-toggle', type: 'button', 'aria-expanded': 'false' }, host, 'Show table');
-    const tbl = h('div', { hidden: '' }, host);
+    const tbl = h('div', { class: 'table-wrap', hidden: '' }, host);
     tbtn.addEventListener('click', () => { const open = tbl.hidden; tbl.hidden = !open; tbtn.textContent = open ? 'Hide table' : 'Show table'; tbtn.setAttribute('aria-expanded', String(open)); });
     return { controls, legend, plot, tbl };
   }
@@ -167,7 +167,7 @@ window.Charts = (function () {
       let xs = [L]; cols.forEach(([, , w], i) => xs.push(xs[i] + w + (i === 1 || i === 7 ? 8 : 0)));
       cols.forEach(([k, label, w], j) => {
         const cx = xs[j] + w / 2;
-        if (reps.includes(k)) s('rect', { x: xs[j] + 3, y: top - 12, width: w - 6, height: 4, rx: 2, fill: repColor(k) }, svg);
+        if (reps.includes(k)) s('rect', { x: xs[j] + 3, y: top - 12, width: w - 6, height: 4, fill: repColor(k) }, svg);
         const words = narrow && label.length > 7 ? [label.slice(0, 4) + '.'] : [label];
         s('text', { x: cx, y: top - 20, 'text-anchor': 'middle', class: 't-muted', 'font-size': narrow ? 10 : 11.5 }, svg, words[0]);
       });
@@ -180,8 +180,8 @@ window.Charts = (function () {
           const v = row[j], g = s('g', { class: 'heat-cell' + (j >= 2 && j <= 7 && v === best ? ' best' : '') }, svg);
           const isRef = j < 2 || j === 8;
           const b = bucket(v);
-          s('rect', { x: xs[j], y, width: w, height: cellH, rx: 5, fill: isRef ? css('--band') : css('--seq-' + b) }, g);
-          if (j >= 2 && j <= 7 && v === best) s('rect', { class: 'ring', x: xs[j] + 2, y: y + 2, width: w - 4, height: cellH - 4, rx: 4 }, g);
+          s('rect', { x: xs[j], y, width: w, height: cellH, fill: isRef ? css('--band') : css('--seq-' + b) }, g);
+          if (j >= 2 && j <= 7 && v === best) s('rect', { class: 'ring', x: xs[j] + 2, y: y + 2, width: w - 4, height: cellH - 4 }, g);
           const fill = isRef ? css('--band') : css('--seq-' + b);
           const hex = fill.replace('#', ''), lum = hex.length === 6 ? [0, 2, 4].map(k => parseInt(hex.substr(k, 2), 16) / 255)
             .map(c => c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)).reduce((a, c, k) => a + c * [0.2126, 0.7152, 0.0722][k], 0) : 1;

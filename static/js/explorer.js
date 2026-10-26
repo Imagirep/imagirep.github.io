@@ -1,4 +1,4 @@
-/* Benchmark explorer: pick a question, answer it yourself, switch between representations of the imagined state. */
+/* Benchmark explorer: pick a question, reveal its answer, switch between representations of the imagined state. */
 (function () {
   const data = window.EXAMPLES;
   if (!data) return;
@@ -6,7 +6,7 @@
   const TABS = [['rgb', 'Endpoint RGB'], ['topdown', 'Top-down'], ['text', 'Text'], ['video', 'Video'], ['depth', 'Depth'],
                 ['normals', 'Normals'], ['panorama', 'Panorama']];
   const KEY = { normals: 'surface_normals' };
-  let cur = 0, tab = 'rgb', picked = null, revealed = false;
+  let cur = 0, tab = 'rgb', revealed = false;
 
   $('ex-rule').textContent = `Examples: ${data.rule}.`;
   const picker = $('ex-picker');
@@ -66,23 +66,18 @@
   function renderOptions() {
     const ex = data.examples[cur], o = $('ex-options'); o.innerHTML = '';
     Object.entries(ex.options).forEach(([k, v]) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'ex-opt';
-      if (picked === k) b.classList.add('picked');
-      if (revealed) { if (k === ex.gold) b.classList.add('gold'); else if (picked === k) b.classList.add('wrong'); }
-      b.innerHTML = `<b>${k}</b><span>${v}</span>`;
-      b.setAttribute('aria-pressed', String(picked === k));
-      b.addEventListener('click', () => { if (revealed) return; picked = k; renderOptions(); });
-      o.appendChild(b);
+      const d = document.createElement('div');
+      d.className = 'ex-opt' + (revealed && k === ex.gold ? ' gold' : '');
+      d.innerHTML = `<b>${k}</b><span>${v}</span>`;
+      o.appendChild(d);
     });
-    const v = $('ex-verdict');
-    v.textContent = !revealed ? (picked ? `Your answer: ${picked}` : 'Choose an answer, then reveal.')
-      : picked ? (picked === ex.gold ? 'Correct.' : `Not quite: the answer is ${ex.gold}.`) : `The answer is ${ex.gold}.`;
-    $('ex-reveal').textContent = revealed ? 'Try again' : 'Reveal answer';
+    $('ex-verdict').textContent = revealed ? `The answer is ${ex.gold}.` : '';
+    $('ex-reveal').textContent = revealed ? 'Hide answer' : 'Reveal answer';
+    $('ex-reveal').setAttribute('aria-expanded', String(revealed));
   }
 
   function select(i) {
-    cur = i; picked = null; revealed = false;
+    cur = i; revealed = false;
     const ex = data.examples[i];
     picker.querySelectorAll('.ex-pick').forEach((b, j) => b.setAttribute('aria-selected', String(j === i)));
     $('ex-setting').textContent = ex.setting;
@@ -92,6 +87,6 @@
     $('ex-observed').innerHTML = ex.observed.map(o => fig(o.src, o.label)).join('');
     renderOptions(); renderTabs(); renderPanel();
   }
-  $('ex-reveal').addEventListener('click', () => { if (revealed) { revealed = false; picked = null; } else revealed = true; renderOptions(); });
+  $('ex-reveal').addEventListener('click', () => { revealed = !revealed; renderOptions(); });
   select(0);
 })();
