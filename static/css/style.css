@@ -233,9 +233,6 @@ img.tz { object-fit: contain; }
   .fig img { filter: none; }
   .flow .flabel.yes { fill: #0a7d0a; } .flow .flabel.no { fill: #b33a3a; }
 }
-.flow.play .fn, .flow.play .fe path { opacity: .22; transition: opacity .35s ease; }
-.flow.play .lit { opacity: 1 !important; }
-.flow .fe path.lit { stroke: var(--ink-2); }
 
 /* bib + footer */
 .bib { position: relative; background: var(--surface); box-shadow: inset 0 0 0 1px var(--ring); margin-top: 18px; }
