@@ -1,17 +1,6 @@
-/* Page glue: theme toggle, section highlighting, charts, GEARS flow animation, BibTeX copy. */
+/* Page glue: section highlighting, charts, GEARS flow animation, BibTeX copy. */
 (function () {
-  // theme
-  const btn = document.querySelector('.theme-toggle');
-  const dark = () => document.documentElement.dataset.theme === 'dark' ||
-    (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
-  btn.addEventListener('click', () => {
-    const t = dark() ? 'light' : 'dark';
-    document.documentElement.dataset.theme = t;
-    try { localStorage.setItem('imagirep-theme', t); } catch (e) {}
-    drawCharts();
-  });
-
-  // charts (redrawn on theme change so colours follow the tokens)
+  // charts (redrawn when the system theme changes so colours follow the tokens)
   function drawCharts() {
     const C = window.Charts;
     C.inputs(document.getElementById('viz-inputs'));
@@ -42,7 +31,7 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (flow && !reduce) {
     const parts = [...flow.querySelectorAll('[data-k]')];
-    const paths = [[1, 2, 3, 7], [1, 2, 3, 4, 5, 6, 7]];          // agree -> answer; disagree -> route
+    const paths = [[1, 2, 3, 7], [1, 2, 3, 4, 5, 6, 7]];          // agree -> answer; disagree -> evidence routing
     let run = 0, timer = null;
     const lightUp = seq => {
       flow.classList.add('play');

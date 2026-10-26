@@ -7,7 +7,7 @@ page (container query units). Fixes relative to the paper figure:
   * The dollhouse image is re-rendered from the textured mesh; scene boxes are projected from Matterport3D object
     boxes (tools/render/boxes_canonical.json).
   * The stacked RGB views (left panel), depth frames and RGB frames are replaced by looping clips along the FO-0003
-    route that end on the look-back view with a yellow box (animated WebP: tools/render/make_clips.py + make_slides.py).
+    trajectory that end on the look-back view with a yellow box (animated WebP: tools/render/make_clips.py + make_slides.py).
 Output: partials/teaser.html (inserted into index.html by tools/build_site.py).
 """
 import html, json, os, re
@@ -38,9 +38,9 @@ put(8.9, [70, 113, 107, 108, 116, 109, 138], 'q4')
 put(9.4, [103, 117])
 SKIP = {67, 90, 92, 94, 96, 91, 93, 95, 97}           # replaced by the rendered scene / SVG overlay
 # looping clips in place of stacked frames: (clip, pt rect x, y, w, h, shapes it replaces, step, group, label)
-CLIPS = [('clip_rgb', 28.5, 221, 132, 91, {65, 84, 119, 86, 87, 88, 89, 120}, 5, '', 'Generated future RGB views along the route'),
-         ('clip_depth', 229, 295, 104, 65, {110, 111, 112, 114}, 8.6, 'q2', 'Depth along the route; the grey sofa is boxed at the end'),
-         ('clip_rgb', 572, 293, 104, 65, {107, 108, 116}, 8.9, 'q4', 'RGB along the route; the pillows are boxed at the end')]
+CLIPS = [('clip_rgb', 28.5, 221, 132, 91, {65, 84, 119, 86, 87, 88, 89, 120}, 5, '', 'Generated future RGB views along the trajectory'),
+         ('clip_depth', 229, 295, 104, 65, {110, 111, 112, 114}, 8.6, 'q2', 'Depth along the trajectory; the grey sofa is boxed at the end'),
+         ('clip_rgb', 572, 293, 104, 65, {107, 108, 116}, 8.9, 'q4', 'RGB along the trajectory; the pillows are boxed at the end')]
 for c in CLIPS:
     SKIP |= c[5]
 
