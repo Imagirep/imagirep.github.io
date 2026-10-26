@@ -24,14 +24,11 @@ python tools/build_site.py     # inlines teaser + data into index.html, adds cac
 
 Preview locally with `python -m http.server 8765` and open http://127.0.0.1:8765/.
 
-## Deploy (GitHub Pages, personal account)
+## Deploy (GitHub Pages)
 
-1. Create a public repository under the personal account (for example `imagirep`).
-2. Push this folder to its `main` branch.
-3. Settings -> Pages -> Source: *Deploy from a branch*, branch `main`, folder `/ (root)`.
-4. The page appears at `https://<user>.github.io/<repo>/`. `.nojekyll` keeps GitHub from running Jekyll.
-5. After the first deploy, change `og:image` in `index.src.html` to the absolute URL
-   (`https://<user>.github.io/<repo>/static/fig/og.jpg`) and rebuild, so link previews show the teaser.
+The site lives in the `Imagirep/imagirep.github.io` repository and is served at https://imagirep.github.io/
+(Settings -> Pages -> *Deploy from a branch*, branch `main`, folder `/ (root)`). Pushing to `main` redeploys it.
+`.nojekyll` keeps GitHub from running Jekyll. `og:image` and `og:url` in `index.src.html` use this absolute URL.
 
 ## Still to fill in
 
