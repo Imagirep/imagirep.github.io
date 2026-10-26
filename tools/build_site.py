@@ -12,11 +12,11 @@ examples = json.load(open(os.path.join(ROOT, 'static', 'data', 'examples.json'),
 data = ('<script>window.RESULTS = ' + json.dumps(results, separators=(',', ':')) + ';\n'
         'window.EXAMPLES = ' + json.dumps(examples, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/') + ';</script>')
 out = src.replace('<!--TEASER-->', teaser).replace('<!--DATA-->', data)
-# cache-bust css/js so a redeploy is picked up immediately
+# cache-bust css/js and figures so a redeploy is picked up immediately
 def _bust(m):
     h = hashlib.md5(open(os.path.join(ROOT, m.group(2)), 'rb').read()).hexdigest()[:8]
     return f'{m.group(1)}="{m.group(2)}?v={h}"'
-out = re.sub(r'(href|src)="(static/(?:css|js)/[\w.-]+)"', _bust, out)
+out = re.sub(r'(href|src)="(static/(?:css|js|fig|teaser)/[\w.-]+)"', _bust, out)
 CJK = re.compile('[　-〿㐀-䶿一-鿿＀-￯]')
 assert not CJK.search(out), 'CJK characters in the page'
 open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8', newline='\n').write(out)

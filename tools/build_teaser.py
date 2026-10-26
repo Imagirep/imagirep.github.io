@@ -121,6 +121,30 @@ for sid in SWAP_TEXT_COLOR:
     orig_colors[sid] = [c for c in cs if c]
 
 
+OLD_INSTR = 'Imagine walking past the fireplace and walk next to the chair, then turn to face my starting point.'
+NEW_INSTR = 'Imagine walking past the fireplace, walking next to the chair, and then turning to face my starting point.'
+
+
+def paper_wording(sid, body):
+    """Wording of the camera-ready Figure 1 (reviewer fixes), applied on top of the source slide."""
+    if sid == 78:                                     # one verb form; slightly smaller so it stays on one line, as in the paper
+        body = body.replace(OLD_INSTR, NEW_INSTR).replace('calc(var(--u)*11)', 'calc(var(--u)*10.3)')
+    elif sid == 79:                                   # "The closest object is / the black pillar." ("the" opens line 2: the box is narrow)
+        m = re.search(r'<span style="([^"]*)"> is </span>', body)
+        if m:
+            plain = m.group(1)
+            body = re.sub(r'(<span style="[^"]*">black pillar</span>)<span style="[^"]*"> </span>',
+                          rf'<span style="{plain}">the </span>\1<span style="{plain}">.</span>', body)
+    elif sid == 104:                                  # "The farthest object is the gray sofa."
+        m = re.search(r'<span style="([^"]*)">The </span><span style="([^"]*)">farthest object from me is gray sofa\.</span>', body)
+        if m:
+            plain, bold = m.groups()
+            body = body.replace(m.group(0), f'<span style="{plain}">The </span><span style="{bold}">farthest object</span>'
+                                             f'<span style="{plain}"> is the </span><span style="{bold}">gray sofa</span>'
+                                             f'<span style="{plain}">.</span>')
+    return body
+
+
 def build_shape(sid, s):
     step, grp = STEP.get(sid, (0, ''))
     attrs = f'class="tz tz-{sid}" data-step="{step}"' + (f' data-q="{grp}"' if grp else '')
@@ -175,6 +199,7 @@ def build_shape(sid, s):
             for c0, c1 in zip(dict.fromkeys(mine), dict.fromkeys(theirs)):
                 body = body.replace(f'color:{c0}', f'color:__{c1}')
             body = body.replace('color:__', 'color:')
+        body = paper_wording(sid, body)
         css += f'justify-content:{anchor};'
         return f'<div {attrs} style="{css}"><div class="tz-txt">{body}</div></div>'
     return f'<div {attrs} style="{css}"></div>'
