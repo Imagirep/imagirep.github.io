@@ -48,21 +48,6 @@
       <a class="btn" href="#citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-4 6 M15 7h4v4c0 3-2 5-4 6"/></svg>BibTeX</a>
     </div>
   </div>
-
-  <div class="wrap narrow premise">
-    <p>Many spatial questions are about what a model cannot see: what it would face after an instructed movement, or how objects
-      seen in separate views relate to each other. Answering them takes <em>spatial imagination</em>, building an
-      <dfn>imagined state</dfn>: the scene as it would appear from a viewpoint the model has not observed. Visual world models
-      imagine this state by generating RGB views, largely because RGB is what they are built to generate, not because it is
-      necessarily what reasoning needs. We ask which representation of the same imagined state actually helps.</p>
-  </div>
-
-  <div class="wrap wide teaser-wrap">
-    <!--TEASER-->
-    <p class="caption"><strong>Spatial imagination is more than generating future RGB views.</strong> The same imagined state supports
-      different spatial questions best through different representations: a panorama for the closest object around you, top-down
-      geometry for the direction of the nearest obstacle, depth for the farthest object, and RGB for what remains visible.</p>
-  </div>
 </section>
 
 <section class="abstract" aria-labelledby="abs-h">
@@ -77,11 +62,16 @@
       Cross-view Integration, providing oracle RGB and six alternative representations (e.g., depth, panoramic views, and top-down
       geometry) of the same unobserved state. This controlled comparison reveals that even accurate imagined RGB does not guarantee
       accurate spatial reasoning, and different questions benefit from different representations. Similar trends hold for
-      representations derived from world-model-estimated states, even when estimated RGB alone degrades performance. Building on these
-      findings, we introduce <strong>GEARS</strong>, a lightweight strategy that adaptively selects imagined evidence at test time,
-      outperforming existing spatial imagination methods on both Viewpoint Imagination and Cross-view Integration. Our results suggest
-      that effective spatial imagination depends not only on generating unseen views, but also on representing spatial information
-      according to the needs of downstream reasoning.</p>
+      representations derived from world-model-estimated states. Notably, estimated RGB alone can mislead spatial reasoning, while
+      alternative representations retain complementary benefits. Building on these findings, we introduce <strong>GEARS</strong>, a
+      lightweight test-time strategy for adaptive representation selection, outperforming existing spatial imagination methods and
+      showing that reasoning about unseen states requires more than generating RGB views.</p>
+  </div>
+</section>
+
+<section class="teaser-sec" aria-label="Overview figure">
+  <div class="wrap wide teaser-wrap">
+    <!--TEASER-->
   </div>
 </section>
 
@@ -92,7 +82,7 @@
     <p class="intro">Built on Matterport3D scenes with known geometry and camera poses, ImagiRep keeps the scene, the question and the
       answer options fixed and changes only how the unobserved state is shown to the model. The <dfn>endpoint</dfn> is the
       unobserved viewpoint a question is about: where the observer stands after the instructed movement, or the missing view between
-      the given ones. <dfn>Oracle</dfn> representations are rendered from the true scene at the endpoint, so the imagination itself is
+      the given ones. <dfn>Oracle</dfn> representations are rendered from Oracle 3D at the endpoint, so the imagination itself is
       error-free; <dfn>estimated</dfn> ones are rendered from a scene predicted by a world model.</p>
     <figure class="fig">
       <img src="static/fig/benchmark.webp" alt="ImagiRep construction pipeline, the seven representations of an imagined state, and example questions for both settings" loading="lazy" width="2200" height="1238">
@@ -117,13 +107,11 @@
   <div class="wrap">
     <p class="eyebrow">Examples</p>
     <h2>Explore the benchmark</h2>
-    <p class="intro">Pick a question, reveal its answer, and switch between representations of the same imagined state.
-      <span class="muted" id="ex-rule"></span></p>
     <div class="explorer" id="ex">
       <div class="ex-picker" role="tablist" aria-label="Example questions" id="ex-picker"></div>
       <div class="ex-main">
         <div class="ex-q">
-          <div class="ex-meta"><span class="pill" id="ex-setting"></span><span class="pill soft" id="ex-type"></span><span class="ex-uid" id="ex-uid"></span></div>
+          <div class="ex-meta"><span class="pill" id="ex-setting"></span><span class="pill soft" id="ex-type"></span></div>
           <p class="ex-question" id="ex-question"></p>
           <div class="ex-options" id="ex-options" aria-label="Answer options"></div>
           <div class="ex-actions"><button class="btn small" type="button" id="ex-reveal">Reveal answer</button><span id="ex-verdict" aria-live="polite"></span></div>
@@ -133,10 +121,9 @@
           <div class="ex-strip" id="ex-observed"></div>
         </div>
         <div class="ex-imagined">
-          <h4>Imagined state <span class="muted">(oracle, rendered from the true scene)</span></h4>
+          <h4>Imagined state <span class="muted">(oracle, rendered from Oracle 3D)</span></h4>
           <div class="ex-tabs" role="tablist" aria-label="Representation" id="ex-tabs"></div>
           <div class="ex-panel" id="ex-panel" role="tabpanel"></div>
-          <details class="ex-caption"><summary>What the model is told about this representation</summary><p id="ex-caption"></p></details>
         </div>
       </div>
     </div>
@@ -175,7 +162,7 @@
           representation built from the same estimated scene lifts it to 61.7&ndash;65.6%.</p></div>
       <figure class="fig compare" id="cmp">
         <img src="static/fig/vis_obs.webp" alt="Oracle versus estimated representations for Viewpoint Imagination" loading="lazy" width="2200" height="494">
-        <figcaption>Oracle representations (rendered from the true scene) and estimated ones (rendered from a world-model scene) of the
+        <figcaption>Oracle representations (rendered from Oracle 3D) and estimated ones (rendered from Estimated 3D) of the
           same endpoint, Viewpoint Imagination.</figcaption>
       </figure>
       <div class="viz-grid">
