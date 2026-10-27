@@ -75,8 +75,8 @@ section.band { background: var(--band); }
 .hero { padding: 56px 0 40px; text-align: center; }
 .hero h1 { font-size: clamp(2rem, 1.2rem + 3.4vw, 3.4rem); letter-spacing: -0.035em; font-weight: 700; }
 .hero h1 span { display: block; font-size: .56em; font-weight: 500; letter-spacing: -0.02em; color: var(--ink-2); margin-top: .35em; }
-.authors { margin-top: 1.6rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font-size: 1.08rem; font-weight: 500; }
-.authors sup, .affil sup { color: var(--accent-ink); font-weight: 600; }
+.authors { margin-top: 1.6rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 6px 22px; font-size: 1.08rem; font-weight: 500; }
+.authors sup, .affil sup { color: var(--accent-ink); font-weight: 600; line-height: 0; }   /* the * must not push its name down */
 .affil { margin-top: .4rem; color: var(--ink-2); }
 .links { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--surface); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--line); text-decoration: none; font-weight: 600; font-size: .92rem; border: 0; cursor: pointer; font-family: inherit; }
