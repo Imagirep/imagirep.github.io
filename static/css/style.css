@@ -73,7 +73,6 @@ section.band { background: var(--band); }
 
 /* hero */
 .hero { padding: 56px 0 40px; text-align: center; }
-.venue { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .06em; color: var(--accent-ink); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 4px 12px; margin-bottom: 1.1rem; }
 .hero h1 { font-size: clamp(2rem, 1.2rem + 3.4vw, 3.4rem); letter-spacing: -0.035em; font-weight: 700; }
 .hero h1 span { display: block; font-size: .56em; font-weight: 500; letter-spacing: -0.02em; color: var(--ink-2); margin-top: .35em; }
 .authors { margin-top: 1.6rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font-size: 1.08rem; font-weight: 500; }
@@ -90,8 +89,8 @@ section.band { background: var(--band); }
 .teaser-sec { padding: 4px 0 8px; }
 
 .abstract { padding-top: 24px; }
-.abstract h2 { font-size: 1.35rem; margin-bottom: 1rem; }
-.abstract p { color: var(--ink-2); text-align: left; }
+.abstract h2 { font-size: 1.35rem; margin-bottom: 1rem; text-align: center; }
+.abstract p { color: var(--ink-2); text-align: justify; hyphens: auto; }
 
 /* figures, cards */
 .fig { margin: 32px 0 0; background: var(--surface-2); box-shadow: var(--shadow); padding: 18px; }

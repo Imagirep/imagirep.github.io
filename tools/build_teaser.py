@@ -222,6 +222,11 @@ boxes['pillar'] = dict(poly=[[0.538, 0.622], [0.571, 0.622], [0.571, 0.728], [0.
 BOX = {'pillar': ('q1', '#F4CCCC', '#D9BFB8', 66, 'right'), 'table': ('q3', '#6D9EEB', '#78909C', 68, 'left'),
        'sofa': ('q2', '#93C47D', '#5E7860', 69, 'right'), 'pillows': ('q4', '#FF00FF', '#766A82', 70, 'left')}
 STEP_OF = {'q1': 8.0, 'q2': 8.3, 'q3': 8.6, 'q4': 8.9}
+# Q4 arrow: ends lower on the RGB card's straight edge, 3 pt short of it, after an 11 pt straight run so the head
+# lines up with the stroke (a steep curve right before the head made it look bent)
+END_Y = {'pillows': 0.637}      # just above the bottom of the RGB image inside the card
+GAP = {'pillows': 3.0}
+TAIL = {'pillows': 13.0}
 
 
 def to_pt(fx, fy):
@@ -234,10 +239,14 @@ for name, (q, box_col, arrow_col, card, side) in BOX.items():
     d = 'M' + ' L'.join(f'{x:.2f},{y:.2f}' for x, y in pts) + ' Z'
     cs = shapes[card]; cx, cy, cw, ch = cs.left / EMU, cs.top / EMU, cs.width / EMU, cs.height / EMU
     bx = sum(p[0] for p in pts) / 4; by = sum(p[1] for p in pts) / 4
-    ex, ey = (cx + cw + 1.5, cy + ch * 0.48) if side == 'right' else (cx - 1.5, cy + ch * 0.48)
+    fy = END_Y.get(name, 0.48)
+    gap, tail = GAP.get(name, 1.5), TAIL.get(name, 0.0)
+    ex, ey = (cx + cw + gap, cy + ch * fy) if side == 'right' else (cx - gap, cy + ch * fy)
+    cxe = ex + tail if side == 'right' else ex - tail       # where the curve ends and the straight run starts
     # start on the box edge facing the card
     sxp = min(p[0] for p in pts) if side == 'right' else max(p[0] for p in pts)
-    path = f'M{sxp:.2f},{by:.2f} C{(sxp + ex) / 2:.2f},{by:.2f} {(sxp + ex) / 2:.2f},{ey:.2f} {ex:.2f},{ey:.2f}'
+    mid = (sxp + cxe) / 2
+    path = f'M{sxp:.2f},{by:.2f} C{mid:.2f},{by:.2f} {mid:.2f},{ey:.2f} {cxe:.2f},{ey:.2f}' + (f' L{ex:.2f},{ey:.2f}' if tail else '')
     st = STEP_OF[q]
     svg.append(f'<path class="tz-box" data-step="{st - 0.15:.2f}" data-q="{q}" d="{d}" stroke="{box_col}"/>')
     svg.append(f'<path class="tz-arrow" data-step="{st - 0.1:.2f}" data-q="{q}" d="{path}" stroke="{arrow_col}" '
