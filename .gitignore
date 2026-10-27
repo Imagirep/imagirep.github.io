@@ -13,3 +13,4 @@ tools/render/sky/
 tools/render/frames_*/
 tools/render/*.npy
 tools/render/clips_*/
+tools/export_est_inputs.py

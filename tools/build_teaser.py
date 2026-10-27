@@ -32,14 +32,14 @@ put(5, [65, 86]); put(5.2, [84, 87]); put(5.4, [119, 89, 88, 120])
 put(6, [131]); put(6.2, [122, 126], 'q1'); put(6.3, [123, 127], 'q2'); put(6.4, [124, 128], 'q3'); put(6.5, [125, 129], 'q4'); put(6.7, [118])
 put(7, [54, 139]); put(7.2, [81, 102, 82, 83])
 put(8.0, [66, 98, 71, 100, 79, 135], 'q1')
-put(8.3, [68, 80, 106, 115, 105, 136], 'q3')
-put(8.6, [69, 101, 110, 111, 112, 114, 104, 137], 'q2')
+put(8.3, [69, 101, 110, 111, 112, 114, 104, 137], 'q2')        # Q2 (depth) appears before Q3 (top-down)
+put(8.6, [68, 80, 106, 115, 105, 136], 'q3')
 put(8.9, [70, 113, 107, 108, 116, 109, 138], 'q4')
 put(9.4, [103, 117])
 SKIP = {67, 90, 92, 94, 96, 91, 93, 95, 97}           # replaced by the rendered scene / SVG overlay
 # looping clips in place of stacked frames: (clip, pt rect x, y, w, h, shapes it replaces, step, group, label)
 CLIPS = [('clip_rgb', 28.5, 221, 132, 91, {65, 84, 119, 86, 87, 88, 89, 120}, 5, '', 'Generated future RGB views along the trajectory'),
-         ('clip_depth', 229, 295, 104, 65, {110, 111, 112, 114}, 8.6, 'q2', 'Depth along the trajectory; the grey sofa is boxed at the end'),
+         ('clip_depth', 229, 295, 104, 65, {110, 111, 112, 114}, 8.3, 'q2', 'Depth along the trajectory; the grey sofa is boxed at the end'),
          ('clip_rgb', 572, 293, 104, 65, {107, 108, 116}, 8.9, 'q4', 'RGB along the trajectory; the pillows are boxed at the end')]
 for c in CLIPS:
     SKIP |= c[5]
@@ -221,7 +221,7 @@ boxes = json.load(open(os.path.join(ROOT, 'tools', 'render', 'boxes_canonical.js
 boxes['pillar'] = dict(poly=[[0.538, 0.622], [0.571, 0.622], [0.571, 0.728], [0.538, 0.728]])   # not annotated in MP3D
 BOX = {'pillar': ('q1', '#F4CCCC', '#D9BFB8', 66, 'right'), 'table': ('q3', '#6D9EEB', '#78909C', 68, 'left'),
        'sofa': ('q2', '#93C47D', '#5E7860', 69, 'right'), 'pillows': ('q4', '#FF00FF', '#766A82', 70, 'left')}
-STEP_OF = {'q1': 8.0, 'q3': 8.3, 'q2': 8.6, 'q4': 8.9}
+STEP_OF = {'q1': 8.0, 'q2': 8.3, 'q3': 8.6, 'q4': 8.9}
 
 
 def to_pt(fx, fy):
@@ -252,7 +252,7 @@ for sid in sorted(shapes, key=lambda i: list(shapes).index(i)):
             q = f' data-q="{grp}"' if grp else ''
             parts.append(f'<div class="tz tz-clip" data-step="{step}"{q} style="left:{pct(x, 720)};top:{pct(y, 405)};'
                          f'width:{pct(w, 720)};height:{pct(h, 405)}">'
-                         f'<img src="static/teaser/{clip}.webp" alt="{label}" decoding="async"></div>')
+                         f'<img src="static/teaser/{clip}_still.webp" data-anim="static/teaser/{clip}.webp" alt="{label}" decoding="async"></div>')
     if sid in SKIP:
         continue
     parts.append(build_shape(sid, shapes[sid]))

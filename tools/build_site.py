@@ -16,7 +16,7 @@ out = src.replace('<!--TEASER-->', teaser).replace('<!--DATA-->', data)
 def _bust(m):
     h = hashlib.md5(open(os.path.join(ROOT, m.group(2)), 'rb').read()).hexdigest()[:8]
     return f'{m.group(1)}="{m.group(2)}?v={h}"'
-out = re.sub(r'(href|src)="(static/(?:css|js|fig|teaser)/[\w.-]+)"', _bust, out)
+out = re.sub(r'(href|src|data-anim)="(static/(?:css|js|fig|teaser)/[\w.-]+)"', _bust, out)
 CJK = re.compile('[　-〿㐀-䶿一-鿿＀-￯]')
 assert not CJK.search(out), 'CJK characters in the page'
 open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8', newline='\n').write(out)

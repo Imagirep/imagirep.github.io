@@ -79,11 +79,6 @@
   <div class="wrap">
     <p class="eyebrow">Benchmark</p>
     <h2>ImagiRep: one imagined state, seven representations</h2>
-    <p class="intro">Built on Matterport3D scenes with known geometry and camera poses, ImagiRep keeps the scene, the question and the
-      answer options fixed and changes only how the unobserved state is shown to the model. The <dfn>endpoint</dfn> is the
-      unobserved viewpoint a question is about: where the observer stands after the instructed movement, or the missing view between
-      the given ones. <dfn>Oracle</dfn> representations are rendered from Oracle 3D at the endpoint, so the imagination itself is
-      error-free; <dfn>estimated</dfn> ones are rendered from a scene predicted by a world model.</p>
     <figure class="fig">
       <img src="static/fig/benchmark.webp" alt="ImagiRep construction pipeline, the seven representations of an imagined state, and example questions for both settings" loading="lazy" width="2200" height="1238">
     </figure>
@@ -121,7 +116,10 @@
           <div class="ex-strip" id="ex-observed"></div>
         </div>
         <div class="ex-imagined">
-          <h4>Imagined state <span class="muted">(oracle, rendered from Oracle 3D)</span></h4>
+          <div class="ex-imagined-head">
+            <h4>Imagined state <span class="muted" id="ex-src-note">(oracle, rendered from Oracle 3D)</span></h4>
+            <div class="seg" role="group" aria-label="Oracle or estimated imagined state" id="ex-src"><button type="button" data-src="oracle" aria-pressed="true">Oracle</button><button type="button" data-src="est" aria-pressed="false">Estimated</button></div>
+          </div>
           <div class="ex-tabs" role="tablist" aria-label="Representation" id="ex-tabs"></div>
           <div class="ex-panel" id="ex-panel" role="tabpanel"></div>
         </div>
@@ -138,8 +136,7 @@
     <article class="finding" id="f1">
       <div class="finding-head"><span class="fnum">1</span>
         <p><strong>Accurate imagined RGB helps overall, but can hurt specific questions.</strong> Oracle endpoint RGB adds roughly 8&ndash;12
-          points over the observed views, yet reasoning stays far from perfect, and on Farthest Object questions GPT-6.1-sol drops from
-          68.4% to 58.2% even with the ground-truth view.</p></div>
+          points over the observed views.</p></div>
       <div class="viz-grid">
         <div class="viz" id="viz-inputs"></div>
         <div class="viz" id="viz-pertype"></div>
@@ -207,8 +204,8 @@
           <path data-k="6" d="M670,236 V192"/>
           <path data-k="7" d="M690,146 V76"/>
         </g>
-        <text class="flabel yes" x="520" y="40">Yes</text>
-        <text class="flabel no" x="492" y="224">No</text>
+        <text class="flabel yes" data-k="7" x="520" y="40">Yes</text>
+        <text class="flabel no" data-k="4" x="492" y="224">No</text>
       </svg>
     </div>
     <div class="viz-grid">
@@ -226,7 +223,7 @@
     <h2>Oracle and estimated representations</h2>
     <figure class="fig">
       <img src="static/fig/vis_more2.webp" alt="More examples of oracle and estimated spatial representations" loading="lazy" width="2200" height="1042">
-      <figcaption>Oracle representations are derived from ground-truth 3D scenes; estimated representations come from HY-World 2.0.</figcaption>
+      <figcaption>Oracle representations are derived from oracle 3D scenes; estimated representations come from HY-World 2.0.</figcaption>
     </figure>
   </div>
 </section>
@@ -257,6 +254,7 @@
 <!--DATA-->
 <script src="static/js/charts.js"></script>
 <script src="static/js/explorer.js"></script>
+<script src="static/js/teaser.js"></script>
 <script src="static/js/main.js"></script>
 </body>
 </html>

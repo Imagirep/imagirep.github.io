@@ -20,6 +20,8 @@ TYPE_LABEL = {
     'cross_view_farthest': 'Farthest Object', 'ordering': 'Spatial Ordering'}
 ORDER = list(TYPE_LABEL)
 REPS = ['topdown', 'text', 'video', 'depth', 'surface_normals', 'panorama']
+# wording shown on the website only; the benchmark files keep the original options
+DISPLAY_FIX = {'last50__MVC-159-Q3': [('painting', 'large painting')]}
 
 Q = [json.loads(l) for l in open(os.path.join(D, 'questions.jsonl'), encoding='utf-8')]
 by = defaultdict(list)
@@ -113,6 +115,8 @@ for q in picked:
                 files = [f'td2_{q["uid"]}.png']
                 caption = caption.replace('; the arrow labeled Oracle shows the facing direction of Oracle RGB from its camera position.', '.')
             rep_out[m] = dict(title=r['title'], caption=caption, src=[web(f, big) for f in files])
+    for old, new in DISPLAY_FIX.get(q['uid'], []):
+        opts = {k: re.sub(rf'(?<!large ){old}', new, v) for k, v in opts.items()}
     examples.append(dict(uid=q['uid'], setting=setting, type=TYPE_LABEL[q['category']], category=q['category'],
                          question=question, options=opts, gold=q['gold'],
                          observed=[dict(label=l or 'Start', src=web(f)) for l, f in obs],

@@ -36,7 +36,7 @@
     },
     "text": {
      "title": "ADDITIONAL TEXT TRAJECTORY",
-     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0°. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Raise your view by 0.1° so it is 0.1° above level. Move forward 3.23 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 12.1° in place.\n\nStep 2: Keep your current viewing direction. Move forward 2.88 m to the next position, keeping that viewing direction during the movement. After arriving, turn around 180.0° in place and lower your view by 0.1° so it is level.\n\nStop here. You have traveled 6.10 m in total across 2 movement segment(s). You are now facing 167.9° to the left of your starting direction, with your view level."
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Raise your view by 0.1\u00b0 so it is 0.1\u00b0 above level. Move forward 3.23 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 12.1\u00b0 in place.\n\nStep 2: Keep your current viewing direction. Move forward 2.88 m to the next position, keeping that viewing direction during the movement. After arriving, turn around 180.0\u00b0 in place and lower your view by 0.1\u00b0 so it is level.\n\nStop here. You have traveled 6.10 m in total across 2 movement segment(s). You are now facing 167.9\u00b0 to the left of your starting direction, with your view level."
     },
     "video": {
      "title": "ADDITIONAL TRAJECTORY VIDEO",
@@ -64,6 +64,41 @@
      "caption": "The panorama is centered on the final camera's facing direction. At mid-height, the center is forward, one-quarter of the width is left, three-quarters is right, and the two joined edges are behind. Top/bottom look up/down; colors are natural RGB, not geometric labels. This is one position, not a sequence of movement frames. Combine it with START and FINAL VIEW RGB to reason about the final state.",
      "src": [
       "static/img/ex/98d61c40927177f7.webp"
+     ]
+    }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_bd23b862e91c.webp"
+     ]
+    },
+    "topdown": {
+     "src": [
+      "static/img/ex/est_c6446d27ef56.webp"
+     ]
+    },
+    "text": {
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view; the final facing direction is stated relative to the starting direction. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Keep your current viewing direction. Move forward 4.10 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 0.2\u00b0 in place.\n\nStop here. You have traveled 4.10 m in total across 1 movement segment(s). You are now facing 0.2\u00b0 to the left of your starting direction, with your view level."
+    },
+    "video": {
+     "src": [
+      "static/video/ex/est_5c15cb5266b6.mp4"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_a114af4b31f0.webp"
+     ]
+    },
+    "surface_normals": {
+     "src": [
+      "static/img/ex/est_d2c9bc75b710.webp"
+     ]
+    },
+    "panorama": {
+     "src": [
+      "static/img/ex/est_1efe6351a152.webp"
      ]
     }
    }
@@ -103,7 +138,7 @@
     },
     "text": {
      "title": "ADDITIONAL TEXT TRAJECTORY",
-     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0°. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Lower your view by 0.2° so it is 0.2° below level. Move forward 3.19 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 75.6° in place and raise your view by 0.2° so it is level.\n\nStep 2: Raise your view by 0.4° so it is 0.4° above level. Move forward 1.46 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 38.8° in place and lower your view by 0.4° so it is level.\n\nStop here. You have traveled 4.65 m in total across 2 movement segment(s). You are now facing 36.8° to the right of your starting direction, with your view level."
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Lower your view by 0.2\u00b0 so it is 0.2\u00b0 below level. Move forward 3.19 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 75.6\u00b0 in place and raise your view by 0.2\u00b0 so it is level.\n\nStep 2: Raise your view by 0.4\u00b0 so it is 0.4\u00b0 above level. Move forward 1.46 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 38.8\u00b0 in place and lower your view by 0.4\u00b0 so it is level.\n\nStop here. You have traveled 4.65 m in total across 2 movement segment(s). You are now facing 36.8\u00b0 to the right of your starting direction, with your view level."
     },
     "video": {
      "title": "ADDITIONAL TRAJECTORY VIDEO",
@@ -131,6 +166,41 @@
      "caption": "The panorama is centered on the final camera's facing direction. At mid-height, the center is forward, one-quarter of the width is left, three-quarters is right, and the two joined edges are behind. Top/bottom look up/down; colors are natural RGB, not geometric labels. This is one position, not a sequence of movement frames. Combine it with START and FINAL VIEW RGB to reason about the final state.",
      "src": [
       "static/img/ex/1e799d19e57ba875.webp"
+     ]
+    }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_885d308bfa45.webp"
+     ]
+    },
+    "topdown": {
+     "src": [
+      "static/img/ex/est_99e1991323d4.webp"
+     ]
+    },
+    "text": {
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view; the final facing direction is stated relative to the starting direction. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Turn right 32.7\u00b0 in place. Move forward 1.80 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 32.7\u00b0 in place.\n\nStep 2: Keep your current viewing direction. Move forward 1.93 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 15.7\u00b0 in place.\n\nStop here. You have traveled 3.73 m in total across 2 movement segment(s). You are now facing 15.7\u00b0 to the right of your starting direction, with your view level."
+    },
+    "video": {
+     "src": [
+      "static/video/ex/est_1d18319f8d1f.mp4"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_f54899040728.webp"
+     ]
+    },
+    "surface_normals": {
+     "src": [
+      "static/img/ex/est_2ca87b47d1f9.webp"
+     ]
+    },
+    "panorama": {
+     "src": [
+      "static/img/ex/est_0715b3675679.webp"
      ]
     }
    }
@@ -170,7 +240,7 @@
     },
     "text": {
      "title": "ADDITIONAL TEXT TRAJECTORY",
-     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0°. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Lower your view by 0.3° so it is 0.3° below level. Move forward 2.69 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 15.4° in place and raise your view by 0.5° so it is 0.2° above level.\n\nStep 2: Keep your current viewing direction. Move forward 2.37 m to the next position, keeping that viewing direction during the movement. After arriving, turn around 180.0° in place and lower your view by 0.2° so it is level.\n\nStop here. You have traveled 5.06 m in total across 2 movement segment(s). You are now facing 164.6° to the left of your starting direction, with your view level."
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Lower your view by 0.3\u00b0 so it is 0.3\u00b0 below level. Move forward 2.69 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 15.4\u00b0 in place and raise your view by 0.5\u00b0 so it is 0.2\u00b0 above level.\n\nStep 2: Keep your current viewing direction. Move forward 2.37 m to the next position, keeping that viewing direction during the movement. After arriving, turn around 180.0\u00b0 in place and lower your view by 0.2\u00b0 so it is level.\n\nStop here. You have traveled 5.06 m in total across 2 movement segment(s). You are now facing 164.6\u00b0 to the left of your starting direction, with your view level."
     },
     "video": {
      "title": "ADDITIONAL TRAJECTORY VIDEO",
@@ -198,6 +268,41 @@
      "caption": "The panorama is centered on the final camera's facing direction. At mid-height, the center is forward, one-quarter of the width is left, three-quarters is right, and the two joined edges are behind. Top/bottom look up/down; colors are natural RGB, not geometric labels. This is one position, not a sequence of movement frames. Combine it with START and FINAL VIEW RGB to reason about the final state.",
      "src": [
       "static/img/ex/918840dab99f7c90.webp"
+     ]
+    }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_64b1d4951155.webp"
+     ]
+    },
+    "topdown": {
+     "src": [
+      "static/img/ex/est_214c03f251fc.webp"
+     ]
+    },
+    "text": {
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view; the final facing direction is stated relative to the starting direction. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Turn left 6.4\u00b0 in place. Move forward 3.79 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 51.4\u00b0 in place.\n\nStep 2: Keep your current viewing direction. Move forward 1.05 m to the next position, keeping that viewing direction during the movement. After arriving, keep facing the same direction.\n\nStep 3: Keep your current viewing direction. Move forward 0.12 m to the next position, keeping that viewing direction during the movement. After arriving, keep facing the same direction.\n\nStep 4: Keep your current viewing direction. Move forward 0.29 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 142.2\u00b0 in place.\n\nStop here. You have traveled 5.25 m in total across 4 movement segment(s). You are now facing 172.8\u00b0 to the left of your starting direction, with your view level."
+    },
+    "video": {
+     "src": [
+      "static/video/ex/est_da410badd23d.mp4"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_f77de9181937.webp"
+     ]
+    },
+    "surface_normals": {
+     "src": [
+      "static/img/ex/est_4630347f7528.webp"
+     ]
+    },
+    "panorama": {
+     "src": [
+      "static/img/ex/est_c908ef8a85f6.webp"
      ]
     }
    }
@@ -237,7 +342,7 @@
     },
     "text": {
      "title": "ADDITIONAL TEXT TRAJECTORY",
-     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0°. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Raise your view by 0.2° so it is 0.2° above level. Move forward 3.44 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 46.2° in place and lower your view by 0.2° so it is level.\n\nStep 2: Lower your view by 0.1° so it is 0.1° below level. Move forward 2.03 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 39.4° in place and raise your view by 0.1° so it is level.\n\nStop here. You have traveled 5.48 m in total across 2 movement segment(s). You are now facing 6.8° to the left of your starting direction, with your view level."
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Raise your view by 0.2\u00b0 so it is 0.2\u00b0 above level. Move forward 3.44 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 46.2\u00b0 in place and lower your view by 0.2\u00b0 so it is level.\n\nStep 2: Lower your view by 0.1\u00b0 so it is 0.1\u00b0 below level. Move forward 2.03 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 39.4\u00b0 in place and raise your view by 0.1\u00b0 so it is level.\n\nStop here. You have traveled 5.48 m in total across 2 movement segment(s). You are now facing 6.8\u00b0 to the left of your starting direction, with your view level."
     },
     "video": {
      "title": "ADDITIONAL TRAJECTORY VIDEO",
@@ -265,6 +370,41 @@
      "caption": "The panorama is centered on the final camera's facing direction. At mid-height, the center is forward, one-quarter of the width is left, three-quarters is right, and the two joined edges are behind. Top/bottom look up/down; colors are natural RGB, not geometric labels. This is one position, not a sequence of movement frames. Combine it with START and FINAL VIEW RGB to reason about the final state.",
      "src": [
       "static/img/ex/9ad7d892fdb3b766.webp"
+     ]
+    }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_940a297d6a02.webp"
+     ]
+    },
+    "topdown": {
+     "src": [
+      "static/img/ex/est_84024c79128b.webp"
+     ]
+    },
+    "text": {
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view; the final facing direction is stated relative to the starting direction. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Turn right 3.6\u00b0 in place. Move forward 2.79 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 38.6\u00b0 in place.\n\nStep 2: Keep your current viewing direction. Move forward 1.70 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 35.0\u00b0 in place.\n\nStep 3: Keep your current viewing direction. Move forward 0.07 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 10.7\u00b0 in place.\n\nStop here. You have traveled 4.57 m in total across 3 movement segment(s). You are now facing 10.7\u00b0 to the left of your starting direction, with your view level."
+    },
+    "video": {
+     "src": [
+      "static/video/ex/est_8a9a73c289cd.mp4"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_5149a92eda95.webp"
+     ]
+    },
+    "surface_normals": {
+     "src": [
+      "static/img/ex/est_90728f724b0e.webp"
+     ]
+    },
+    "panorama": {
+     "src": [
+      "static/img/ex/est_e3e9ef0a84a3.webp"
      ]
     }
    }
@@ -304,7 +444,7 @@
     },
     "text": {
      "title": "ADDITIONAL TEXT TRAJECTORY",
-     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0°. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Lower your view by 0.9° so it is 0.9° below level. Move forward 1.85 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 50.6° in place and raise your view by 0.9° so it is level.\n\nStep 2: Raise your view by 0.1° so it is 0.1° above level. Move forward 3.31 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 37.6° in place and lower your view by 0.1° so it is level.\n\nStop here. You have traveled 5.16 m in total across 2 movement segment(s). You are now facing 13.1° to the left of your starting direction, with your view level."
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Lower your view by 0.9\u00b0 so it is 0.9\u00b0 below level. Move forward 1.85 m to the next position, keeping that viewing direction during the movement. After arriving, turn left 50.6\u00b0 in place and raise your view by 0.9\u00b0 so it is level.\n\nStep 2: Raise your view by 0.1\u00b0 so it is 0.1\u00b0 above level. Move forward 3.31 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 37.6\u00b0 in place and lower your view by 0.1\u00b0 so it is level.\n\nStop here. You have traveled 5.16 m in total across 2 movement segment(s). You are now facing 13.1\u00b0 to the left of your starting direction, with your view level."
     },
     "video": {
      "title": "ADDITIONAL TRAJECTORY VIDEO",
@@ -332,6 +472,41 @@
      "caption": "The panorama is centered on the final camera's facing direction. At mid-height, the center is forward, one-quarter of the width is left, three-quarters is right, and the two joined edges are behind. Top/bottom look up/down; colors are natural RGB, not geometric labels. This is one position, not a sequence of movement frames. Combine it with START and FINAL VIEW RGB to reason about the final state.",
      "src": [
       "static/img/ex/ca926ecc46cde621.webp"
+     ]
+    }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_1cad215d120c.webp"
+     ]
+    },
+    "topdown": {
+     "src": [
+      "static/img/ex/est_c8c8c2f43313.webp"
+     ]
+    },
+    "text": {
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view; the final facing direction is stated relative to the starting direction. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Turn left 8.9\u00b0 in place. Move forward 2.67 m to the next position, keeping that viewing direction during the movement. After arriving, keep facing the same direction.\n\nStop here. You have traveled 2.67 m in total across 1 movement segment(s). You are now facing 8.9\u00b0 to the left of your starting direction, with your view level."
+    },
+    "video": {
+     "src": [
+      "static/video/ex/est_968c4da7ec31.mp4"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_6bbebf71a211.webp"
+     ]
+    },
+    "surface_normals": {
+     "src": [
+      "static/img/ex/est_f2abcc89d59d.webp"
+     ]
+    },
+    "panorama": {
+     "src": [
+      "static/img/ex/est_cb8783fd1b0e.webp"
      ]
     }
    }
@@ -371,7 +546,7 @@
     },
     "text": {
      "title": "ADDITIONAL TEXT TRAJECTORY",
-     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0°. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Lower your view by 2.1° so it is 2.1° below level. Move forward 3.53 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 92.0° in place and raise your view by 2.4° so it is 0.4° above level.\n\nStep 2: Keep your current viewing direction. Move forward 4.25 m to the next position, keeping that viewing direction during the movement. After arriving, turn around 180.0° in place and lower your view by 0.4° so it is level.\n\nStop here. You have traveled 7.78 m in total across 2 movement segment(s). You are now facing 88.0° to the left of your starting direction, with your view level."
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view, and view tilt is relative to level. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Lower your view by 2.1\u00b0 so it is 2.1\u00b0 below level. Move forward 3.53 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 92.0\u00b0 in place and raise your view by 2.4\u00b0 so it is 0.4\u00b0 above level.\n\nStep 2: Keep your current viewing direction. Move forward 4.25 m to the next position, keeping that viewing direction during the movement. After arriving, turn around 180.0\u00b0 in place and lower your view by 0.4\u00b0 so it is level.\n\nStop here. You have traveled 7.78 m in total across 2 movement segment(s). You are now facing 88.0\u00b0 to the left of your starting direction, with your view level."
     },
     "video": {
      "title": "ADDITIONAL TRAJECTORY VIDEO",
@@ -399,6 +574,41 @@
      "caption": "The panorama is centered on the final camera's facing direction. At mid-height, the center is forward, one-quarter of the width is left, three-quarters is right, and the two joined edges are behind. Top/bottom look up/down; colors are natural RGB, not geometric labels. This is one position, not a sequence of movement frames. Combine it with START and FINAL VIEW RGB to reason about the final state.",
      "src": [
       "static/img/ex/44e2dc4b3392543c.webp"
+     ]
+    }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_e6dda825011b.webp"
+     ]
+    },
+    "topdown": {
+     "src": [
+      "static/img/ex/est_5249f2eccbf1.webp"
+     ]
+    },
+    "text": {
+     "text": "The description gives the movement and camera turns from start to final state. Turns are relative to the current view; the final facing direction is stated relative to the starting direction. Use it together with the START and FINAL VIEW RGB images.\nBegin at the position and viewing direction shown in the starting image. Use that starting direction as 0\u00b0. All left and right turns below are relative to your current view.\n\nYour initial view is level.\n\nStep 1: Keep your current viewing direction. Move forward 1.70 m to the next position, keeping that viewing direction during the movement. After arriving, turn right 29.0\u00b0 in place.\n\nStep 2: Keep your current viewing direction. Move forward 2.03 m to the next position, keeping that viewing direction during the movement. After arriving, turn around 180.0\u00b0 in place.\n\nStop here. You have traveled 3.73 m in total across 2 movement segment(s). You are now facing 151.0\u00b0 to the left of your starting direction, with your view level."
+    },
+    "video": {
+     "src": [
+      "static/video/ex/est_d8dd568c5725.mp4"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_f8838b41382d.webp"
+     ]
+    },
+    "surface_normals": {
+     "src": [
+      "static/img/ex/est_ccdbb0eb6c3d.webp"
+     ]
+    },
+    "panorama": {
+     "src": [
+      "static/img/ex/est_7e7c07da132c.webp"
      ]
     }
    }
@@ -472,6 +682,18 @@
       "static/img/ex/c2bc9919d61b44ac.webp"
      ]
     }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_1fb90356cf4a.webp"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_73b0dadefae6.webp"
+     ]
+    }
    }
   },
   {
@@ -543,6 +765,18 @@
       "static/img/ex/3e44969d8dcfca64.webp"
      ]
     }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_1b9de07b3413.webp"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_5a756d9239fe.webp"
+     ]
+    }
    }
   },
   {
@@ -552,10 +786,10 @@
    "category": "ordering",
    "question": "From the viewpoint and facing direction of Image 2, which sequence correctly orders the four objects from left to right?",
    "options": {
-    "A": "tv, painting, white armchair, bed",
-    "B": "bed, painting, white armchair, tv",
-    "C": "painting, bed, tv, white armchair",
-    "D": "bed, tv, white armchair, painting"
+    "A": "tv, large painting, white armchair, bed",
+    "B": "bed, large painting, white armchair, tv",
+    "C": "large painting, bed, tv, white armchair",
+    "D": "bed, tv, white armchair, large painting"
    },
    "gold": "B",
    "observed": [
@@ -612,6 +846,18 @@
      "caption": "The panorama is centered on the Oracle RGB facing direction. At mid-height, the center is forward, one-quarter of the width is left, three-quarters is right, and the two joined edges are behind. Top/bottom look up/down; colors are natural RGB, not geometric labels. Combine it with the numbered images and Oracle RGB.",
      "src": [
       "static/img/ex/2c3aff38394d17a1.webp"
+     ]
+    }
+   },
+   "est": {
+    "rgb": {
+     "src": [
+      "static/img/ex/est_931fa026d0e3.webp"
+     ]
+    },
+    "depth": {
+     "src": [
+      "static/img/ex/est_f38ccee2a221.webp"
      ]
     }
    }

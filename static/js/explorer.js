@@ -1,5 +1,5 @@
-/* Benchmark explorer: pick a question, reveal its answer, see the representations of the imagined state.
-   The representation tabs cycle on their own; hovering a tab shows it, and hovering or focusing the panel holds the cycle. */
+/* Benchmark explorer: pick a question, reveal its answer, see the oracle or estimated representations of the imagined state.
+   The representation tabs cycle on their own; clicking a tab shows it, and hovering or focusing the panel holds the cycle. */
 (function () {
   const data = window.EXAMPLES;
   if (!data) return;
@@ -7,9 +7,16 @@
   const TABS = [['rgb', 'Endpoint RGB'], ['topdown', 'Top-down'], ['text', 'Text'], ['video', 'Video'], ['depth', 'Depth'],
                 ['normals', 'Normals'], ['panorama', 'Panorama']];
   const KEY = { normals: 'surface_normals' };
-  const DWELL = { video: 5000 };                    // ms per tab; video gets longer so a few frames play
-  const DWELL_DEFAULT = 2800;
-  let cur = 0, tab = 'rgb', revealed = false;
+  const DWELL_DEFAULT = 2800;                       // ms per tab, not counting the time a video is playing
+  const AFTER_MANUAL = 3000;                        // a tab picked by hand stays at least this long
+  const NOTE = { oracle: '(oracle, rendered from Oracle 3D)',
+                 'est:Viewpoint Imagination': '(rendered from Estimated 3D by HY-World 2.0)',
+                 'est:Cross-view Integration': '(SEVA view, MoGe-2 depth)' };
+  let cur = 0, tab = 'rgb', src = 'oracle', revealed = false;
+  // oracle has every representation; estimated has what the world model produced for that setting
+  const has = k => src === 'oracle' || !!(data.examples[cur].est || {})[KEY[k] || k];
+  const step = d => { const i = TABS.findIndex(x => x[0] === tab);
+    for (let j = 1; j <= TABS.length; j++) { const k = TABS[(i + d * j + TABS.length * j) % TABS.length][0]; if (has(k)) return k; } return tab; };
 
   const picker = $('ex-picker');
   let lastSetting = '';
@@ -28,7 +35,7 @@
   function fig(src, label, cls, auto) {
     const isVid = /\.mp4$/.test(src);
     const media = isVid
-      ? `<video src="${src}" controls muted loop playsinline preload="metadata"${auto ? ' autoplay' : ''}></video>`
+      ? `<video src="${src}" controls muted playsinline preload="metadata"${auto ? ' autoplay' : ' loop'}></video>`
       : `<img src="${src}" alt="${label}" loading="lazy">`;
     return `<figure class="${cls || ''}">${media}${label ? `<figcaption>${label}</figcaption>` : ''}</figure>`;
   }
@@ -39,29 +46,46 @@
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'ex-tab'; b.dataset.rep = k; b.setAttribute('role', 'tab');
     b.textContent = label;
-    b.addEventListener('click', () => show(k));
-    b.addEventListener('mouseenter', () => show(k));
+    b.addEventListener('click', () => pick(k));
     b.addEventListener('keydown', e => {
       if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      const i = TABS.findIndex(x => x[0] === tab), n = (i + (e.key === 'ArrowRight' ? 1 : TABS.length - 1)) % TABS.length;
-      show(TABS[n][0]); tabBar.querySelector(`[data-rep="${tab}"]`).focus();
+      pick(step(e.key === 'ArrowRight' ? 1 : -1)); tabBar.querySelector(`[data-rep="${tab}"]`).focus();
     });
     tabBar.appendChild(b);
   });
 
-  function show(k) {
-    if (k === tab && $('ex-panel').childElementCount) return;
+  let manualAt = 0;
+  function pick(k) { if (!has(k)) return; manualAt = Date.now(); show(k); schedule(); }
+
+  function show(k, force) {
+    if (!has(k)) return;
+    if (k === tab && !force && $('ex-panel').childElementCount) return;
     tab = k;
     tabBar.querySelectorAll('.ex-tab').forEach(b => {
-      const on = b.dataset.rep === tab;
-      b.setAttribute('aria-selected', String(on)); b.tabIndex = on ? 0 : -1;
+      const on = b.dataset.rep === tab, ok = has(b.dataset.rep);
+      b.setAttribute('aria-selected', String(on)); b.tabIndex = on ? 0 : -1; b.disabled = !ok;
+      b.title = ok ? '' : 'Not estimated in this setting';
     });
     renderPanel();
   }
 
+  // oracle / estimated switch
+  const srcBar = $('ex-src');
+  function setSrc(s) {
+    src = s;
+    srcBar.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.src === src)));
+    $('ex-src-note').textContent = src === 'oracle' ? NOTE.oracle : NOTE['est:' + data.examples[cur].setting];
+    show(has(tab) ? tab : 'rgb', true);
+  }
+  srcBar.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { setSrc(b.dataset.src); schedule(); }));
+
   function renderPanel() {
     const ex = data.examples[cur], p = $('ex-panel');
-    if (tab === 'rgb') {
+    if (src === 'est') {
+      const r = ex.est[KEY[tab] || tab];
+      if (tab === 'text') p.innerHTML = `<pre>${r.text.replace(/</g, '&lt;')}</pre>`;
+      else p.innerHTML = r.src.map(s => fig(s, tab === 'rgb' ? 'Estimated RGB' : '', tab === 'panorama' ? 'pano' : '', true)).join('');
+    } else if (tab === 'rgb') {
       p.innerHTML = ex.endpoint.map(e => fig(e.src, e.label)).join('');
     } else {
       const r = ex.reps[KEY[tab] || tab];
@@ -77,11 +101,16 @@
   function schedule() {
     clearTimeout(timer);
     if (!running()) return;
+    // a video plays through once before its tab's dwell starts
+    const v = tab === 'video' ? $('ex-panel').querySelector('video') : null;
+    if (v) {
+      v.onplaying = v.onended = schedule;
+      if (!v.paused && !v.ended) return;
+    }
     timer = setTimeout(() => {
-      const i = TABS.findIndex(x => x[0] === tab);
-      show(TABS[(i + 1) % TABS.length][0]);
+      show(step(1));
       schedule();
-    }, DWELL[tab] || DWELL_DEFAULT);
+    }, Math.max(DWELL_DEFAULT, manualAt + AFTER_MANUAL - Date.now()));
   }
   const hold = v => { held = v; schedule(); };
   box.addEventListener('mouseenter', () => hold(true));
@@ -113,8 +142,8 @@
     $('ex-question').textContent = ex.question;
     $('ex-observed').innerHTML = ex.observed.map(o => fig(o.src, o.label)).join('');
     renderOptions();
-    $('ex-panel').innerHTML = '';
-    show('rgb');
+    tab = 'rgb';
+    setSrc(src);                                    // keeps the oracle/estimated choice, refreshes note and tabs
     schedule();
   }
   $('ex-reveal').addEventListener('click', () => { revealed = !revealed; renderOptions(); });

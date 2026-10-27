@@ -26,6 +26,19 @@
   // "soon" buttons do nothing yet
   document.querySelectorAll('[data-soon]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
 
+  // GEARS flow: the pipeline appears stage by stage (data-k order) the first time it scrolls into view
+  const flow = document.getElementById('flow');
+  if (flow) {
+    const parts = [...flow.querySelectorAll('[data-k]')];
+    flow.classList.add('anim');
+    const fio = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return;
+      fio.disconnect();
+      parts.forEach(p => setTimeout(() => p.classList.add('on'), 150 + (+p.dataset.k - 1) * 450));
+    }, { threshold: 0.5 });
+    fio.observe(flow);
+  }
+
   // BibTeX copy
   document.querySelector('.copy').addEventListener('click', e => {
     const t = document.getElementById('bibtex').textContent;
