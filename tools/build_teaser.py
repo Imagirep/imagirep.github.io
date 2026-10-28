@@ -65,11 +65,15 @@ def pct(v, total):
 
 
 MOVE = {131: (85.75, 314.9)}                          # down arrow: centred under the left-panel clip
+# pt moved down: card titles at the same offset from their card top, panel titles clear of the panel edge,
+# panorama (and its box) clear of its title
+DROP = {98: 6.0175, 80: 2.9549, 113: 1.4090, 77: 6.0892, 139: 6.0657, 71: 2.835, 100: 2.835}
 
 
 def style_box(s):
     x, y, w, h = s.left / EMU, s.top / EMU, s.width / EMU, s.height / EMU
     x, y = MOVE.get(int(s.name.split(';')[1]), (x, y))
+    y += DROP.get(int(s.name.split(';')[1]), 0)
     st = f'left:{pct(x, 720)};top:{pct(y, 405)};width:{pct(w, 720)};height:{pct(h, 405)};'
     if s.rotation:
         st += f'transform:rotate({s.rotation:.2f}deg);'
