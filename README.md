@@ -32,9 +32,8 @@ The site lives in the `Imagirep/imagirep.github.io` repository and is served at 
 
 ## Still to fill in
 
-- Paper, Data and Code buttons are marked `data-soon`; replace the `href` and drop `data-soon` once the links exist
-  (Paper points to the arXiv abstract page, later to the ACL Anthology entry once the NAACL version is out).
-- BibTeX: update `journal`/`eprint` after the arXiv ID is assigned.
+- The Data button is marked `data-soon`; replace the `href` and drop `data-soon` once the link exists.
+- Paper points to the arXiv abstract page; switch it to the ACL Anthology entry once the NAACL version is out.
 
 ## Data notice
 
